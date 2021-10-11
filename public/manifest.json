@@ -2,17 +2,17 @@
   "short_name": "HEAD Audio",
   "name": "HEAD Audio",
   "icons": [{
-      "src": "HEAD2.png",
+      "src": "HEAD.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "HEAD2.png",
+      "src": "HEAD.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "HEAD2.png",
+      "src": "HEAD.png",
       "type": "image/png",
       "sizes": "512x512"
     }
