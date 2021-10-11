@@ -120,20 +120,9 @@ class About extends React.Component {
           </div>
           <div>
             <h2 style={{ color: "white" }}>
-              The history of the HEAD brand and in particular of the HEOLO
-              loudspeaker started almost by chance more than 10 years ago, when
-              Leonardo D'Aprano and Luigi Ponzo, accepted the challenge of
-              creating an omnidirectional loudspeaker with an audiophile
-              vocation. The original intuition, and subsequent prototyping and
-              testing, led to the creation of a loudspeaker that exceeded the
-              project's expectations and initial specifications. Across the
-              years, the working group had expanded including, Graziano Ponzo
-              and Marco Bartolotta, with work skills in high-tech sectors of
-              industrial electronics, musical instruments manufacturing,
-              aerospace quality connections. Our common idea has been always to
-              create high-end audio products that should have had an unusual
-              approach and innovative content. This approach transpires in every
-              product manufactured by our group.
+              {t(
+                "The history of the HEAD brand and in particular of the HEOLO loudspeaker started almost by chance more than 10 years ago, when Leonardo D'Aprano and Luigi Ponzo, accepted the challenge of creating an omnidirectional loudspeaker with an audiophile vocation. The original intuition, and subsequent prototyping and testing, led to the creation of a loudspeaker that exceeded the project's expectations and initial specifications. Across the years, the working group had expanded including, Graziano Ponzo and Marco Bartolotta, with work skills in high-tech sectors of industrial electronics, musical instruments manufacturing, aerospace quality connections. Our common idea has been always to create high-end audio products that should have had an unusual approach and innovative content. This approach transpires in every product manufactured by our group."
+              )}
             </h2>
           </div>
         </div>
@@ -147,28 +136,9 @@ class About extends React.Component {
           </div>
           <div>
             <h2 style={{ color: "white" }}>
-              HEAD (High End Audio Devices) represents a young brand with the
-              aim of creating highly innovative products for high quality audio
-              listening. In the beginning our efforts have focused on the
-              realization of custom projects for a few selected customers. Given
-              the excellent feedback received, we have decided to offer some of
-              our achievements to the wider public, as the result of expertise
-              established over more than 20 years of high fidelity realizations
-              (both in electronics and in the loudspeakers). Our products are
-              entirely and proudly handcrafted in Italy. The small differences
-              and imperfections of the finish are not an indication of poor
-              accuracy, but are present to witness the hand of the craftsman
-              that makes our products almost unique. High quality manufacturing
-              of our products is comparably superior to mass-produced devices,
-              which can not, for obvious limitations of the industrial
-              production process, present the same care, particularly as regards
-              the electroacoustic aspects. An integral part of the production
-              process is represented by listening sessions of each of our
-              products, through the use of selected and representative musical
-              programs of various genres, in a defined environment and set-up.
-              This last stage of the production process is in our opinion
-              essential to guarantee the quality of the product and to verify
-              that the final yield is the one expected.
+              {t(
+                "HEAD (High End Audio Devices) represents a young brand with the aim of creating highly innovative products for high quality audio listening. In the beginning our efforts have focused on the realization of custom projects for a few selected customers. Given the excellent feedback received, we have decided to offer some of our achievements to the wider public, as the result of expertise established over more than 20 years of high fidelity realizations (both in electronics and in the loudspeakers). Our products are entirely and proudly handcrafted in Italy. The small differences and imperfections of the finish are not an indication of poor accuracy, but are present to witness the hand of the craftsman that makes our products almost unique. High quality manufacturing of our products is comparably superior to mass-produced devices, which can not, for obvious limitations of the industrial production process, present the same care, particularly as regards the electroacoustic aspects. An integral part of the production process is represented by listening sessions of each of our products, through the use of selected and representative musical programs of various genres, in a defined environment and set-up. This last stage of the production process is in our opinion essential to guarantee the quality of the product and to verify that the final yield is the one expected."
+              )}
             </h2>
           </div>
         </div>
@@ -176,4 +146,4 @@ class About extends React.Component {
     );
   }
 }
-export default withStyles(styles)(About);
+export default withTranslation()(withStyles(styles)(About));

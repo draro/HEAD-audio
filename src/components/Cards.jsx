@@ -68,12 +68,12 @@ class Cards extends React.Component {
           ) : (
             <CardMedia
               component="img"
-              height="194"
+              // height="194"
               image={picture_url}
               alt={title}
               id={`media_${title}`}
               style={{
-                transform: "scale(1.2)",
+                transform: "scale(.7)",
               }}
             />
           )}
