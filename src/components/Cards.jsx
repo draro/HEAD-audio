@@ -83,7 +83,7 @@ class Cards extends React.Component {
             </Typography>
           </CardContent>
           <Button style={{ color: "white" }} component={Link} to={link}>
-            View more
+            {t("View more")}
           </Button>
         </Card>
       </div>

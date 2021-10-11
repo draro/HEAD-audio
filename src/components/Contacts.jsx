@@ -10,6 +10,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { withTranslation } from "react-i18next";
 init("user_WXPIhdhFdfgTpqnYfP0m6");
 const styles = {
   first: {
@@ -184,12 +185,19 @@ class Contact extends React.Component {
       <>
         <div className={colore ? colore : classes.first}>
           <h2 className={classes.headTitle} id="Contact">
-            Contact Us
+            {t("Contact Us")}
           </h2>
           <div style={{ flexDirection: "row", display: "flex" }}>
             <div style={{ flex: 4, color: "white", fontFamily: "Usuzi" }}>
               <h3 style={{ color: "white" }}>
-                E-mail: info@head-audio.it <br /> <br />
+                E-mail:{" "}
+                <a
+                  href="mailto:info@head-audio.it"
+                  style={{ color: "white", textDecoration: "underline" }}
+                >
+                  info@head-audio.it
+                </a>{" "}
+                <br /> <br />
                 Lab: Via G.Pascoli, 12 - 00010
                 <br /> <br />
                 Setteville (RM)
@@ -272,13 +280,13 @@ class Contact extends React.Component {
                   aria-describedby="alert-dialog-description"
                 >
                   <DialogTitle id="alert-dialog-title">
-                    {"Error sending emails"}
+                    {t("Error sending emails")}
                   </DialogTitle>
                   <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                      It seems we have a problem with the contact form. Please
-                      send us an email at info@head-audio.it. We will get back
-                      to you shortly
+                      {t(
+                        "It seems we have a problem with the contact form. Please send us an email at info@head-audio.it. We will get back to you shortly"
+                      )}
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
@@ -293,4 +301,4 @@ class Contact extends React.Component {
     );
   }
 }
-export default withStyles(styles)(Contact);
+export default withTranslation()(withStyles(styles)(Contact));
