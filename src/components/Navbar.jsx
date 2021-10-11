@@ -175,7 +175,11 @@ class Navbar extends React.Component {
               <Button color="inherit" component={Link} to="/about-us">
                 {t("About Us")}
               </Button>
-              <Button color="inherit" component={Link} to="/products">
+              <Button
+                color="inherit"
+                component={Link}
+                to="/products-accessories"
+              >
                 {t("Products & Accessories")}
               </Button>
               <Button color="inherit" component={Link} to="/contact-us">

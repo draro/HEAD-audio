@@ -18,7 +18,101 @@ import { withStyles } from "@material-ui/styles";
 import { Button, stepClasses } from "@mui/material";
 import { withTranslation } from "react-i18next";
 
-const styles = {};
+const styles = {
+  first: {
+    backgroundColor: "rgba(0,0,0,0.82)",
+    // width: "98%",
+    textAlign: "center",
+    justifyContent: "center",
+    padding: "30px",
+    // height: "60%",
+    marginTop: "0px",
+    display: "flex",
+    flexDirection: "row",
+    // justifyContent: "space-between",
+    zIndex: 1,
+  },
+  second: {
+    backgroundColor: "rgba(0,0,0,0.2)",
+    // width: "95%",
+    textAlign: "center",
+    justifyContent: "center",
+    padding: "30px",
+    // height: "70vh",
+    marginTop: "0px",
+    // display: "flex",
+    flexDirection: "row",
+    zIndex: 1,
+  },
+  bg: {
+    // position: "absolute",
+    // backgroundColor: "rgba(0,0,0,0.82)",
+    width: "100%",
+    // textAlign: "center",
+    // justifyContent: "center",
+    // padding: "30px",
+    background: "url('./assets/bg.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100%",
+    // opacity: 0.3,
+    height: "70%",
+    // top: 0,
+    // position: "absolute",
+    zIndex: 1,
+    // "&:hover": {
+    //   transform: "scale(90%)",
+    // },
+  },
+  bg2: {
+    // position: "absolute",
+    // backgroundColor: "rgba(0,0,0,0.82)",
+    width: "100%",
+    right: 0,
+    // textAlign: "center",
+    // justifyContent: "center",
+    // padding: "30px",
+    background: "url('./assets/Layer2.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "281px 431px",
+    // opacity: 0.3,
+    height: "70%",
+    position: "absolute",
+    zIndex: 1,
+    // "&:hover": {
+    //   transform: "scale(90%)",
+    // },
+  },
+  image: {
+    // position: "relative",
+    height: "200px",
+    bottom: "0px",
+  },
+  headTitle: {
+    // position: "fixed",
+    fontFamily: "Usuzi",
+    color: "white",
+    fontSize: "80px",
+    // opacity: 1,
+    zIndex: 100,
+  },
+  headSubTitle: {
+    fontFamily: "Usuzi",
+    color: "white",
+    fontSize: "50px",
+    // opacity: 1,
+    zIndex: 100,
+  },
+  welcome: {
+    fontFamily: "Arial",
+    color: "white",
+    fontSize: "60px",
+    display: "flex",
+    justifyContent: "center",
+    width: "90%",
+    zIndex: 100,
+    textDecoration: "underline",
+  },
+};
 class Cards extends React.Component {
   constructor(props) {
     super(props);
@@ -43,11 +137,11 @@ class Cards extends React.Component {
     }
   }
   render() {
-    const { title, picture_url, link, description, t } = this.props;
+    const { title, picture_url, link, description, t, classes } = this.props;
     return (
       <div style={{ display: "flex" }}>
         <Card
-          sx={{ maxWidth: 345 }}
+          sx={{ width: 345 }}
           style={{ margin: 30, backgroundColor: "grey" }}
           id={title}
           onMouseEnter={() => this.transform_image("in", title)}

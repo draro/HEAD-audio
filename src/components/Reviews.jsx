@@ -22,7 +22,18 @@ class Reviews extends React.Component {
       >
         <h1>{reviews.reviewer}</h1>
         <h2>{reviews.review}</h2>
-        {reviews.link ? <h3>{reviews.link}</h3> : null}
+        {reviews.link ? (
+          <h3>
+            <a
+              href={reviews.link}
+              style={{ color: "white", textDecoration: "underline" }}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {reviews.link}
+            </a>
+          </h3>
+        ) : null}
       </div>
     );
   }

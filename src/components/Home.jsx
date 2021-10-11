@@ -183,17 +183,16 @@ class Home extends React.Component {
           {/* <Soundwave /> */}
         </div>
         <div className={classes.second}>
-          <h2 className={classes.headTitle}>H.E.O.LO.</h2>
+          <h2 className={classes.headTitle}>{t("Products")}</h2>
           <h2 className={classes.headSubTitle}>
-            <strong>H</strong>igh <strong>E</strong>nd <strong>O</strong>
-            mnidirectional <strong>Lo</strong>udspeakers
+            {t("Discover our Products and Accessories")}
           </h2>
           <div style={{ flexDirection: "row" }}>
-            <h3 style={{ color: "white" }}>
+            {/* <h3 style={{ color: "white" }}>
               {t(
                 "H.E.O.LO. is an innovative speaker designed to overcome the typical limits of traditional acoustic transduction systems. The listening experience with any HEOLO model is remarkable since the speakers literally 'disappear'. The speaker's position is practically not detectable while maintaining the focus and detail of each individual instrument. The timbre and tonal balance do not vary as the listening position changes, making the concept of sweet point obsolete. A technical solution that makes these speakers unique and inimitable"
               )}
-            </h3>
+            </h3> */}
             <div />
             <br />
             <div

@@ -8,6 +8,7 @@ import About from "./components/About";
 import Contacts from "./components/Contacts";
 import { withStyles } from "@material-ui/core";
 import { sliderClasses } from "@mui/material";
+import Products from "./components/Products";
 // import AuthRoute from "./utils/AuthRoute";
 // import
 const styles = {
@@ -44,6 +45,7 @@ class App extends React.Component {
                 component={Contacts}
                 props={(this.props, classes.first)}
               />
+              <Route exact path="/products-accessories" component={Products} />
             </Switch>
           </div>
         </Router>

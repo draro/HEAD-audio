@@ -211,7 +211,7 @@ class Contact extends React.Component {
             </div>
             <div style={{ flex: 4 }}>
               <h2 style={{ fontFamily: "Usuzi", color: "white" }}>
-                Enter your Full name:
+                {t("Enter your Full name:")}
               </h2>{" "}
               <TextField
                 type="text"
@@ -227,7 +227,7 @@ class Contact extends React.Component {
                 fullWidth
               />
               <h2 style={{ fontFamily: "Usuzi", color: "white" }}>
-                Enter your E-mail:
+                {t("Enter your E-mail:")}
               </h2>
               <TextField
                 type="text"
@@ -245,7 +245,7 @@ class Contact extends React.Component {
                 fullWidth
               />
               <h2 style={{ fontFamily: "Usuzi", color: "white" }}>
-                Enter your message:
+                {t("Enter your message:")}
               </h2>
               <TextField
                 id="message"
@@ -270,7 +270,7 @@ class Contact extends React.Component {
                 }}
                 onClick={this.onSubmit}
               >
-                Send Message
+                {t("Send Message")}
               </Button>
               {this.state.sendError ? (
                 <Dialog
