@@ -161,7 +161,9 @@ class Navbar extends React.Component {
                 component={Link}
                 to="/"
               > */}
-            <img className="App-logo" src={"HEAD2.png"} />
+            <a href="/">
+              <img className="App-logo" src={"HEAD2.png"} />
+            </a>
             {/* Dine@Home */}
             {/* </Typography>
             </Tooltip> */}

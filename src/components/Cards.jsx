@@ -125,13 +125,13 @@ class Cards extends React.Component {
     const bg1 = document.getElementById(title);
 
     if (input === "out") {
-      bg1.style.transform = "scale(1)";
+      bg1.style.transform = "scale(.9)";
       // bg2.style.transform = "scale(1)";
       this.setState({
         zoom: 0,
       });
     } else {
-      bg1.style.transform = "scale(1.2)";
+      bg1.style.transform = "scale(1.1)";
       this.setState({ zoom: 1 });
       // bg2.style.transform = "scale(0.7)";
     }
@@ -167,7 +167,7 @@ class Cards extends React.Component {
               alt={title}
               id={`media_${title}`}
               style={{
-                transform: "scale(.7)",
+                transform: "scale(.8)",
               }}
             />
           )}

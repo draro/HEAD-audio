@@ -218,7 +218,9 @@ class Home extends React.Component {
         </div>
         {this.state.revNum >= 0 ? (
           <div className={classes.first} style={{ flexDirection: "column" }}>
-            <h2 className={classes.headTitle}>What they say about HEOLO</h2>{" "}
+            <h2 className={classes.headTitle}>
+              {t("What they say about HEOLO")}
+            </h2>
             <div
               style={{
                 flexDirection: "row",
