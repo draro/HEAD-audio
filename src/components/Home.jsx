@@ -100,7 +100,7 @@ const styles = {
     fontSize: "60px",
     display: "flex",
     justifyContent: "center",
-    width: "90%",
+    width: "100%",
     zIndex: 100,
     textDecoration: "underline",
   },
@@ -170,7 +170,6 @@ class Home extends React.Component {
           <div className={classes.bg} id="bg_img1">
             <h8 className={classes.headTitle}>H.E.A.D. Audio</h8>
             <h3 className={classes.headSubTitle}>High End Audio Devices</h3>
-            <br />
             <h2 className={classes.welcome}>
               {t("Welcome to a new listening experience")}
             </h2>
