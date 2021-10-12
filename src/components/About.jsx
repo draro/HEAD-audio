@@ -1,13 +1,8 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Soundwave from "../utils/Soundwave";
-import Cards from "./Cards";
+
 import { withTranslation } from "react-i18next";
-import reviews from "../references/references.json";
-import Reviews from "./Reviews";
-import { Icon, IconButton } from "@mui/material";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",

@@ -11,7 +11,6 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { withTranslation } from "react-i18next";
-init("user_WXPIhdhFdfgTpqnYfP0m6");
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",
@@ -168,7 +167,8 @@ class Contact extends React.Component {
       this.state.errorTextEmail.length === 0
     ) {
       e.preventDefault();
-      send("heolo", "heolo", "heolo", "user_WXPIhdhFdfgTpqnYfP0m6", this.state)
+      init("user_WXPIhdhFdfgTpqnYfP0m6");
+      send("heolo", "heolo", this.state)
         .then((response) => {
           console.log("SUCCESS!", response.status, response.text);
         })

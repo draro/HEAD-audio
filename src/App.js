@@ -8,12 +8,12 @@ import Contacts from "./components/Contacts";
 import { withStyles } from "@material-ui/core";
 import Products from "./components/Products";
 // import AuthRoute from "./utils/AuthRoute";
-import Sigma from "./components/Sigma";
-import Pigreco from "./components/Pigreco";
-import Micro from "./components/Micro";
-import Tulip from "./components/Tulip";
-import Musica from "./components/Musica";
-import Cables from "./components/Cables";
+// import Sigma from "./components/Sigma";
+// import Pigreco from "./components/Pigreco";
+// import Micro from "./components/Micro";
+// import Tulip from "./components/Tulip";
+// import Musica from "./components/Musica";
+// import Cables from "./components/Cables";
 import products from "./references/prodotti.json";
 const styles = {
   first: {
@@ -59,6 +59,7 @@ class App extends React.Component {
                     exact
                     path={product.link}
                     component={this.capitalizeFirstLetter(product.link)}
+                    key={product.link}
                   />
                 );
               })}

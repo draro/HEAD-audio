@@ -3,19 +3,11 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import AddIcon from "@mui/icons-material/Add";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 import Link from "react-router-dom/Link";
 import { withStyles } from "@material-ui/styles";
-import { Button, stepClasses } from "@mui/material";
+import { Button } from "@mui/material";
 import { withTranslation } from "react-i18next";
 
 const styles = {
@@ -137,7 +129,7 @@ class Cards extends React.Component {
     }
   }
   render() {
-    const { title, picture_url, link, description, t, classes } = this.props;
+    const { title, picture_url, link, description, t } = this.props;
     return (
       <div style={{ display: "flex" }}>
         <Card

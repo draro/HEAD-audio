@@ -1,18 +1,14 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Soundwave from "../utils/Soundwave";
 import Cards from "./Cards";
 import { withTranslation } from "react-i18next";
 import reviews from "../references/references.json";
 import Reviews from "./Reviews";
-import { Icon, IconButton } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import prodotti from "../references/prodotti.json";
 import Contacts from "./Contacts";
-import { makeStyles } from "@material-ui/core/styles";
 import AnimatedBg from "react-animated-bg";
-import ReactDOM from "react-dom";
 
 // const animations = keyframes`
 // from: { background-position: 0 0; }
@@ -202,7 +198,7 @@ class Home extends React.Component {
             className={classes.animatedimages}
           >
             {/* <div className={classes.bg} id="bg_img1"> */}
-            <h8 className={classes.headTitle}>H.E.A.D. Audio</h8>
+            <h1 className={classes.headTitle}>H.E.A.D. Audio</h1>
             <h3 className={classes.headSubTitle}>High End Audio Devices</h3>
             <h2 className={classes.welcome}>
               {t("Welcome to a new listening experience")}
