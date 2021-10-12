@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -7,10 +6,15 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contacts from "./components/Contacts";
 import { withStyles } from "@material-ui/core";
-import { sliderClasses } from "@mui/material";
 import Products from "./components/Products";
 // import AuthRoute from "./utils/AuthRoute";
-// import
+import Sigma from "./components/Sigma";
+import Pigreco from "./components/Pigreco";
+import Micro from "./components/Micro";
+import Tulip from "./components/Tulip";
+import Musica from "./components/Musica";
+import Cables from "./components/Cables";
+import products from "./references/prodotti.json";
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",
@@ -27,6 +31,9 @@ const styles = {
   },
 };
 class App extends React.Component {
+  capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -46,6 +53,15 @@ class App extends React.Component {
                 props={(this.props, classes.first)}
               />
               <Route exact path="/products-accessories" component={Products} />
+              {products.map((product) => {
+                return (
+                  <Route
+                    exact
+                    path={product.link}
+                    component={this.capitalizeFirstLetter(product.link)}
+                  />
+                );
+              })}
             </Switch>
           </div>
         </Router>

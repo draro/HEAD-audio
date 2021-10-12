@@ -113,7 +113,7 @@ class About extends React.Component {
     return (
       <>
         <div className={classes.first} style={{ flexDirection: "column" }}>
-          <h8 className={classes.headTitle}>Who we are</h8>
+          <h8 className={classes.headTitle}>{t("Who we are")}</h8>
           <br />
           <div>
             <img src="../assets/team.jpg" alt="team" />
@@ -127,9 +127,11 @@ class About extends React.Component {
           </div>
         </div>
         <div className={classes.second}>
-          <h8 className={classes.headTitle}>Our Vision</h8>
+          <h8 className={classes.headTitle}>{t("Our Vision")}</h8>
           <br />
-          <h8 className={classes.headSubTitle}>Innovation and quality</h8>
+          <h8 className={classes.headSubTitle}>
+            {t("Innovation and quality")}
+          </h8>
           <br />
           <div>
             <img src="../assets/vision.jpg" alt="team" />

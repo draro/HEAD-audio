@@ -132,3 +132,7 @@ text-align: right
 h8{
   font-family: Usuzi;
 }
+@keyframes animatedBackground {
+  from { translate: scale(0.2); };
+  to { translate: scale(0.6) }
+}

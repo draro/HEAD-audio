@@ -10,6 +10,14 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import prodotti from "../references/prodotti.json";
 import Contacts from "./Contacts";
+import { makeStyles } from "@material-ui/core/styles";
+import AnimatedBg from "react-animated-bg";
+import ReactDOM from "react-dom";
+
+// const animations = keyframes`
+// from: { background-position: 0 0; }
+//     to: { background-position: 100% 0; }
+// `;
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",
@@ -39,21 +47,21 @@ const styles = {
   bg: {
     // position: "absolute",
     // backgroundColor: "rgba(0,0,0,0.82)",
-    width: "100%",
+    // width: "100%",
     // textAlign: "center",
     // justifyContent: "center",
     // padding: "30px",
-    background: "url('./assets/bg.png')",
-    backgroundRepeat: "no-repeat",
+    background: "url('./assets/bg2.png')",
+    backgroundRepeat: "cover",
     backgroundSize: "100%",
-    // opacity: 0.3,
-    height: "70%",
+    // backgroundRepeat: "repeat-x",
+    backgroundPosition: "0px 0px",
+    height: "80%",
     // top: 0,
     // position: "absolute",
     zIndex: 1,
-    // "&:hover": {
-    //   transform: "scale(90%)",
-    // },
+    animationName: `animatedBackground`,
+    animationDuration: "40s",
   },
   bg2: {
     // position: "absolute",
@@ -104,7 +112,17 @@ const styles = {
     zIndex: 100,
     textDecoration: "underline",
   },
+  animatedsection: {
+    // margin-bottom: 50px;
+  },
+
+  animatedimages: {
+    padding: "100px 0",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  },
 };
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -112,20 +130,28 @@ class Home extends React.Component {
       zoom_active: false,
       revNum: 0,
       products: prodotti,
+      imagesList: [
+        'url("./assets/bg.png")',
+        'url("./assets/bg2.png")',
+        'url("./assets/bg3.png")',
+      ],
     };
     this.transform_image = this.transform_image.bind(this);
+  }
+  componentDidMount() {
+    // bg_anim();
   }
   transform_image(input) {
     // alert("transform image");
     const bg1 = document.getElementById("bg_img1");
-    const bg2 = document.getElementById("bg_img2");
+    // const bg2 = document.getElementById("bg_img2");
     // alert(this.state.zoom_active);
     if (input === "out") {
       bg1.style.transform = "scale(1)";
       // bg2.style.transform = "scale(1)";
       this.setState({ zoom_active: true });
     } else {
-      bg1.style.transform = "scale(0.7)";
+      bg1.style.transform = "scale(1)";
       // bg2.style.transform = "scale(0.7)";
       this.setState({ zoom_active: false });
     }
@@ -155,25 +181,33 @@ class Home extends React.Component {
   render() {
     const { classes, t } = this.props;
     console.log(reviews);
-    const carte = () => {
-      for (var i = 0; i < this.state.products.length; i++) {
-        return <Cards />;
-      }
-    };
+
     return (
       <>
         <div
           className={classes.first}
+          id="first"
           // onMouseEnter={() => this.transform_image("in")}
           // onMouseLeave={() => this.transform_image("out")}
         >
-          <div className={classes.bg} id="bg_img1">
+          {/* <canvas
+            id="canvas"
+            style={{ position: "absolute", width: "100%", height: "100%" }}
+          ></canvas> */}
+          <AnimatedBg
+            colors={this.state.imagesList}
+            duration={2}
+            delay={1}
+            timingFunction="ease-out"
+            className={classes.animatedimages}
+          >
+            {/* <div className={classes.bg} id="bg_img1"> */}
             <h8 className={classes.headTitle}>H.E.A.D. Audio</h8>
             <h3 className={classes.headSubTitle}>High End Audio Devices</h3>
             <h2 className={classes.welcome}>
               {t("Welcome to a new listening experience")}
             </h2>
-          </div>
+          </AnimatedBg>
           {/* <div className={classes.bg2} id="bg_img2"></div> */}
           <div style={{ zIndex: 100 }}>
             {/* <img src="./assets/h1.png" /> */}
@@ -218,7 +252,7 @@ class Home extends React.Component {
         </div>
         {this.state.revNum >= 0 ? (
           <div className={classes.first} style={{ flexDirection: "column" }}>
-            <h2 className={classes.headTitle}>
+            <h2 className={classes.headSubTitle}>
               {t("What they say about HEOLO")}
             </h2>
             <div
@@ -229,16 +263,28 @@ class Home extends React.Component {
               }}
             >
               <ArrowBackIosIcon
-                style={{ visibility: "visible", color: "white", margin: 10 }}
+                style={{
+                  visibility: "visible",
+                  color: "blue",
+                  margin: 10,
+                  fontSize: 40,
+                }}
                 onClick={() => this.previous_review()}
+                size="xl"
               />
 
               <Reviews reviews={reviews[this.state.revNum]} />
 
               <ArrowForwardIosIcon
                 color="white"
-                style={{ visibility: "visible", color: "white", margin: 10 }}
+                style={{
+                  visibility: "visible",
+                  color: "blue",
+                  margin: 10,
+                  fontSize: 40,
+                }}
                 onClick={() => this.next_review()}
+                size="xl"
               />
             </div>
           </div>
@@ -248,4 +294,5 @@ class Home extends React.Component {
     );
   }
 }
+
 export default withTranslation()(withStyles(styles)(Home));

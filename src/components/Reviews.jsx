@@ -1,5 +1,5 @@
 import React from "react";
-
+import { withTranslation } from "react-i18next";
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +8,7 @@ class Reviews extends React.Component {
     };
   }
   render() {
-    const { reviews } = this.props;
+    const { reviews, t } = this.props;
     console.log(reviews);
     return (
       <div
@@ -17,13 +17,14 @@ class Reviews extends React.Component {
           flexDirection: "column",
           display: "flex",
           textAlign: "center",
-          width: "90vw",
+          // width: "90vw",
         }}
       >
         <h1>{reviews.reviewer}</h1>
         <h2>{reviews.review}</h2>
         {reviews.link ? (
           <h3>
+            {t("See More :")} <br />
             <a
               href={reviews.link}
               style={{ color: "white", textDecoration: "underline" }}
@@ -38,4 +39,4 @@ class Reviews extends React.Component {
     );
   }
 }
-export default Reviews;
+export default withTranslation()(Reviews);
