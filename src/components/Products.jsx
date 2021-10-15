@@ -135,6 +135,7 @@ class Products extends React.Component {
                 justifyContent: "space-around",
                 flexWrap: "wrap",
               }}
+              id="heolo"
             >
               {products.map((card) => {
                 if (card.title.includes("HEOLO")) {
@@ -145,6 +146,8 @@ class Products extends React.Component {
                       picture_url={card.picture_url}
                       link={card.link}
                       description={card.description}
+                      showMore="true"
+                      images={card.images}
                     ></Cards>
                   );
                 } else {
@@ -170,6 +173,7 @@ class Products extends React.Component {
               justifyContent: "space-around",
               flexWrap: "wrap",
             }}
+            id="musica"
           >
             {products.map((card) => {
               if (card.title.includes("M.U.SI.C.A.")) {
@@ -180,6 +184,8 @@ class Products extends React.Component {
                     picture_url={card.picture_url}
                     link={card.link}
                     description={card.description}
+                    showMore="true"
+                    images={card.images}
                   ></Cards>
                 );
               } else {
@@ -202,6 +208,7 @@ class Products extends React.Component {
               justifyContent: "space-around",
               flexWrap: "wrap",
             }}
+            id="tulip"
           >
             {products.map((card) => {
               if (card.title.includes("TU.LI.P.")) {
@@ -212,6 +219,8 @@ class Products extends React.Component {
                     picture_url={card.picture_url}
                     link={card.link}
                     description={card.description}
+                    showMore="true"
+                    images={card.images}
                   ></Cards>
                 );
               } else {

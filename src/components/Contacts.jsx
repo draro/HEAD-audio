@@ -183,7 +183,10 @@ class Contact extends React.Component {
     const { classes, t, colore } = this.props;
     return (
       <>
-        <div className={colore ? colore : classes.first}>
+        <div
+          className={colore ? colore : classes.first}
+          style={{ display: "flex", flexWrap: "wrap" }}
+        >
           <h2 className={classes.headTitle} id="Contact">
             {t("Contact Us")}
           </h2>

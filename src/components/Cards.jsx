@@ -1,14 +1,27 @@
+/* eslint-disable no-useless-computed-key */
 import React from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-
+import ReactCardFlip from "react-card-flip";
 import Link from "react-router-dom/Link";
 import { withStyles } from "@material-ui/styles";
 import { Button } from "@mui/material";
 import { withTranslation } from "react-i18next";
+import Dialog from "@mui/material/Dialog";
+import ListItemText from "@mui/material/ListItemText";
+import ListItem from "@mui/material/ListItem";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Slide from "@mui/material/Slide";
+import { ImageList, ImageListItem } from "@material-ui/core";
+import ProductDescription from "./ProductDescription";
 
 const styles = {
   first: {
@@ -23,6 +36,15 @@ const styles = {
     flexDirection: "row",
     // justifyContent: "space-between",
     zIndex: 1,
+  },
+  mobile: {
+    ["@media (max-width:1000px)"]: {
+      background: "url('./assets/h1.png')",
+      backgroundColor: "rgba(0,0,0,0.82)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "contain",
+      backgroundPosition: "center",
+    },
   },
   second: {
     backgroundColor: "rgba(0,0,0,0.2)",
@@ -39,21 +61,19 @@ const styles = {
   bg: {
     // position: "absolute",
     // backgroundColor: "rgba(0,0,0,0.82)",
-    width: "100%",
+    // width: "100%",
     // textAlign: "center",
     // justifyContent: "center",
     // padding: "30px",
-    background: "url('./assets/bg.png')",
-    backgroundRepeat: "no-repeat",
+    background: "url('./assets/bg2.png')",
+    backgroundRepeat: "cover",
     backgroundSize: "100%",
-    // opacity: 0.3,
-    height: "70%",
+    // backgroundRepeat: "repeat-x",
+    backgroundPosition: "0px 0px",
+    height: "80%",
     // top: 0,
     // position: "absolute",
     zIndex: 1,
-    // "&:hover": {
-    //   transform: "scale(90%)",
-    // },
   },
   bg2: {
     // position: "absolute",
@@ -86,6 +106,8 @@ const styles = {
     fontSize: "80px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "30px" },
+    ["@media (max-width:1000px)"]: { fontSize: "60px" },
   },
   headSubTitle: {
     fontFamily: "Usuzi",
@@ -93,29 +115,60 @@ const styles = {
     fontSize: "50px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "20px" },
+    ["@media (max-width:1000px)"]: { fontSize: "40px" },
   },
   welcome: {
-    fontFamily: "Arial",
+    fontFamily: "Usuzi",
     color: "white",
-    fontSize: "60px",
+    fontSize: "40px",
     display: "flex",
     justifyContent: "center",
-    width: "90%",
+    width: "100%",
     zIndex: 100,
     textDecoration: "underline",
+    ["@media (max-width:780px)"]: { fontSize: "15px" },
+    ["@media (max-width:1000px)"]: { fontSize: "30px" },
+  },
+  animatedsection: {
+    // margin-bottom: 50px;
+  },
+
+  animatedimages: {
+    padding: "100px 0",
+    // height: "100%",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    ["@media (max-width:1000px)"]: {
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "contain",
+      backgroundPosition: "center",
+    },
   },
 };
+
 class Cards extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       zoom: 0,
+      isFlipped: false,
+      open: false,
     };
+  }
+  handleClick(e) {
+    this.setState({ open: true }, () => {
+      console.log(this.state.open);
+    });
+  }
+  handleClose(e) {
+    this.setState({ open: false }, () => {
+      console.log(this.state.open);
+    });
   }
   transform_image(input, title) {
     // alert("transform image");
     const bg1 = document.getElementById(title);
-
     if (input === "out") {
       bg1.style.transform = "scale(.9)";
       // bg2.style.transform = "scale(1)";
@@ -128,17 +181,29 @@ class Cards extends React.Component {
       // bg2.style.transform = "scale(0.7)";
     }
   }
+  flip_image() {
+    this.setState({ isFlipped: !this.state.isFlipped });
+  }
   render() {
-    const { title, picture_url, link, description, t } = this.props;
-    return (
-      <div style={{ display: "flex" }}>
-        <Card
-          sx={{ width: 345 }}
-          style={{ margin: 30, backgroundColor: "grey" }}
-          id={title}
-          onMouseEnter={() => this.transform_image("in", title)}
-          onMouseLeave={() => this.transform_image("out", title)}
-        >
+    const {
+      title,
+      picture_url,
+      link,
+      description,
+      t,
+      showMore,
+      images,
+      classes,
+    } = this.props;
+    console.log(this.props);
+    const Transition = React.forwardRef(function Transition(props, ref) {
+      return <Slide direction="up" ref={ref} {...props} />;
+    });
+    const regex = /[.,\s]/g;
+
+    const not_flipped = () => {
+      return (
+        <>
           <CardHeader
             title={title}
             //   subheader="September 14, 2016"
@@ -168,10 +233,87 @@ class Cards extends React.Component {
               {t(description)}
             </Typography>
           </CardContent>
-          <Button style={{ color: "white" }} component={Link} to={link}>
-            {t("View more")}
-          </Button>
-        </Card>
+          {showMore === "true" ? (
+            <>
+              <Button
+                style={{ color: "white" }}
+                onClick={() => this.setState({ open: true })}
+              >
+                {t("View more")}
+              </Button>
+              <ProductDescription
+                images={images}
+                title={title}
+                classes={classes}
+                callback={(state) => this.setState({ open: state })}
+                open={this.state.open}
+              />
+            </>
+          ) : null}
+        </>
+      );
+    };
+    return (
+      <div style={{ display: "flex" }}>
+        <ReactCardFlip
+          isFlipped={this.state.isFlipped}
+          flipDirection="horizontal"
+        >
+          <Card
+            sx={{ width: 345 }}
+            style={{ margin: 30, backgroundColor: "grey" }}
+            id={title}
+            onMouseEnter={
+              showMore === "true"
+                ? () => this.transform_image("in", title)
+                : () => this.flip_image()
+            }
+            onMouseLeave={
+              showMore === "true"
+                ? () => this.transform_image("out", title)
+                : null
+            }
+          >
+            {not_flipped()}
+          </Card>
+          <Card
+            sx={{ width: 345, minHeight: "400px" }}
+            style={{ margin: 30, backgroundColor: "grey" }}
+            id={title}
+            onMouseEnter={
+              showMore === "true"
+                ? () => this.transform_image("in", title)
+                : null
+            }
+            onMouseLeave={
+              showMore === "true"
+                ? () => this.transform_image("out", title)
+                : () => this.flip_image()
+            }
+          >
+            <CardContent style={{ minHeight: "100%" }}>
+              <Button
+                style={{ color: "white" }}
+                component={Link}
+                to={`/products-accessories#${title
+                  .toLowerCase()
+                  .replace(regex, "")}`}
+              >
+                {t("View more")}
+              </Button>
+              <CardMedia
+                component="img"
+                // height="194"
+                image={picture_url}
+                alt={title}
+                id={`media_${title}`}
+                style={{
+                  transform: "scale(.8)",
+                }}
+              />
+            </CardContent>
+          </Card>
+        </ReactCardFlip>
       </div>
     );
   }

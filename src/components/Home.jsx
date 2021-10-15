@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Cards from "./Cards";
@@ -28,6 +29,15 @@ const styles = {
     // justifyContent: "space-between",
     zIndex: 1,
   },
+  mobile: {
+    ["@media (max-width:1000px)"]: {
+      background: "url('./assets/h1.png')",
+      backgroundColor: "rgba(0,0,0,0.82)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "contain",
+      backgroundPosition: "center",
+    },
+  },
   second: {
     backgroundColor: "rgba(0,0,0,0.2)",
     // width: "95%",
@@ -56,8 +66,6 @@ const styles = {
     // top: 0,
     // position: "absolute",
     zIndex: 1,
-    animationName: `animatedBackground`,
-    animationDuration: "40s",
   },
   bg2: {
     // position: "absolute",
@@ -90,6 +98,8 @@ const styles = {
     fontSize: "80px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "30px" },
+    ["@media (max-width:1000px)"]: { fontSize: "60px" },
   },
   headSubTitle: {
     fontFamily: "Usuzi",
@@ -97,16 +107,20 @@ const styles = {
     fontSize: "50px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "20px" },
+    ["@media (max-width:1000px)"]: { fontSize: "40px" },
   },
   welcome: {
-    fontFamily: "Arial",
+    fontFamily: "Usuzi",
     color: "white",
-    fontSize: "60px",
+    fontSize: "40px",
     display: "flex",
     justifyContent: "center",
     width: "100%",
     zIndex: 100,
     textDecoration: "underline",
+    ["@media (max-width:780px)"]: { fontSize: "15px" },
+    ["@media (max-width:1000px)"]: { fontSize: "30px" },
   },
   animatedsection: {
     // margin-bottom: 50px;
@@ -114,8 +128,14 @@ const styles = {
 
   animatedimages: {
     padding: "100px 0",
+    // height: "100%",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    ["@media (max-width:1000px)"]: {
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "contain",
+      backgroundPosition: "center",
+    },
   },
 };
 
@@ -126,16 +146,35 @@ class Home extends React.Component {
       zoom_active: false,
       revNum: 0,
       products: prodotti,
-      imagesList: [
-        'url("./assets/bg.png")',
-        'url("./assets/bg2.png")',
-        'url("./assets/bg3.png")',
-      ],
+      imagesList: [],
     };
     this.transform_image = this.transform_image.bind(this);
   }
   componentDidMount() {
     // bg_anim();
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      this.setState({
+        imagesList: [
+          'url("./assets/Layer0.png")',
+          'url("./assets/Layer1.png")',
+          'url("./assets/h1.png")',
+          'url("./assets/sigma_bg.png")',
+          'url("./assets/pi-greco_bg.png")',
+        ],
+      });
+    } else {
+      this.setState({
+        imagesList: [
+          'url("./assets/bg.png")',
+          'url("./assets/bg2.png")',
+          'url("./assets/bg3.png")',
+        ],
+      });
+    }
   }
   transform_image(input) {
     // alert("transform image");

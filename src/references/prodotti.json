@@ -2,34 +2,70 @@
         "title": "HEOLO - MICRO",
         "picture_url": "assets/micro.png",
         "link": "micro",
-        "description": "A little miracle capable of a wide soundstage, reproducing all the details and nuance of your preferred music. Easy load for any amplifier delivering an incredible punch and sense of rhythm."
+        "description": "A little miracle capable of a wide soundstage, reproducing all the details and nuance of your preferred music. Easy load for any amplifier delivering an incredible punch and sense of rhythm.",
+        "images": ["../assets/Layer0.png",
+            "../assets/Layer1.png",
+            "../assets/h1.png",
+            "../assets/sigma.png",
+            "../assets/pi-greco.png"
+        ]
     },
     {
         "title": "HEOLO - SIGMA",
         "picture_url": "assets/sigma.png",
         "link": "sigma",
-        "description": "The reference speaker for a no-compromise choice. The most performing speaker in our catalog. It represents a true listening experience."
+        "description": "The reference speaker for a no-compromise choice. The most performing speaker in our catalog. It represents a true listening experience.",
+        "images": ["../assets/Layer0.png",
+            "../assets/Layer1.png",
+            "../assets/h1.png",
+            "../assets/sigma.png",
+            "../assets/pi-greco.png"
+        ]
     },
     {
         "title": "HEOLO - Pi GRECO",
         "picture_url": "assets/pi-greco.png",
         "link": "pigreco",
-        "description": "Best seller for an all-around performer. Wide and detailed soundstage with an incredibly deep and firm bass (40 Hz @ 0dB) with a double bass driver in 2.5-way configuration."
+        "description": "Best seller for an all-around performer. Wide and detailed soundstage with an incredibly deep and firm bass (40 Hz @ 0dB) with a double bass driver in 2.5-way configuration.",
+        "images": ["../assets/Layer0.png",
+            "../assets/Layer1.png",
+            "../assets/h1.png",
+            "../assets/sigma.png",
+            "../assets/pi-greco.png"
+        ]
     }, {
         "title": "M.U.SI.C.A.",
         "picture_url": "assets/musica.png",
         "link": "musica",
-        "description": "Power Amplifier"
+        "description": "Power Amplifier",
+        "images": ["../assets/Layer0.png",
+            "../assets/Layer1.png",
+            "../assets/h1.png",
+            "../assets/sigma.png",
+            "../assets/pi-greco.png"
+        ]
     }, {
         "title": "TU.LI.P.",
         "picture_url": "assets/tulip.jpg",
         "link": "tulip",
-        "description": "Tube Like Preamplifier"
+        "description": "Tube Like Preamplifier",
+        "images": ["../assets/Layer0.png",
+            "../assets/Layer1.png",
+            "../assets/h1.png",
+            "../assets/sigma.png",
+            "../assets/pi-greco.png"
+        ]
     }, {
         "title": "H.E.A.D.-P & H.E.A.D.-S",
         "picture_url": "assets/head-s.jpg",
         "link": "cables",
-        "description": "Our Cables"
+        "description": "Our Cables",
+        "images": ["../assets/Layer0.png",
+            "../assets/Layer1.png",
+            "../assets/h1.png",
+            "../assets/sigma.png",
+            "../assets/pi-greco.png"
+        ]
     }
 
 ]
