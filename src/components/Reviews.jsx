@@ -10,6 +10,17 @@ class Reviews extends React.Component {
   render() {
     const { reviews, t } = this.props;
     console.log(reviews);
+    const isMobile = () => {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
     return (
       <div
         style={{
@@ -20,10 +31,10 @@ class Reviews extends React.Component {
           // width: "90vw",
         }}
       >
-        <h1>{reviews.reviewer}</h1>
-        <h2>{reviews.review}</h2>
+        <h1 style={isMobile ? { fontSize: 16 } : null}>{reviews.reviewer}</h1>
+        <h2 style={isMobile ? { fontSize: 14 } : null}>{reviews.review}</h2>
         {reviews.link ? (
-          <h3>
+          <h3 style={isMobile ? { fontSize: 12 } : null}>
             {t("See More :")} <br />
             <a
               href={reviews.link}

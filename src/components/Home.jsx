@@ -99,7 +99,7 @@ const styles = {
     // opacity: 1,
     zIndex: 100,
     ["@media (max-width:780px)"]: { fontSize: "30px" },
-    ["@media (max-width:1000px)"]: { fontSize: "60px" },
+    ["@media (max-width:1000px,min-width:780px)"]: { fontSize: "60px" },
   },
   headSubTitle: {
     fontFamily: "Usuzi",
@@ -108,7 +108,7 @@ const styles = {
     // opacity: 1,
     zIndex: 100,
     ["@media (max-width:780px)"]: { fontSize: "20px" },
-    ["@media (max-width:1000px)"]: { fontSize: "40px" },
+    ["@media (max-width:1000px,min-width:780px)"]: { fontSize: "40px" },
   },
   welcome: {
     fontFamily: "Usuzi",
@@ -120,7 +120,7 @@ const styles = {
     zIndex: 100,
     textDecoration: "underline",
     ["@media (max-width:780px)"]: { fontSize: "15px" },
-    ["@media (max-width:1000px)"]: { fontSize: "30px" },
+    ["@media (max-width:1000px,min-width:780px)"]: { fontSize: "30px" },
   },
   animatedsection: {
     // margin-bottom: 50px;
@@ -215,7 +215,17 @@ class Home extends React.Component {
   }
   render() {
     const { classes, t } = this.props;
-    console.log(reviews);
+    const isMobile = () => {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
 
     return (
       <>
@@ -301,8 +311,8 @@ class Home extends React.Component {
                 style={{
                   visibility: "visible",
                   color: "blue",
-                  margin: 10,
-                  fontSize: 40,
+                  margin: isMobile ? 5 : 10,
+                  fontSize: isMobile ? 20 : 40,
                 }}
                 onClick={() => this.previous_review()}
                 size="xl"
@@ -315,8 +325,8 @@ class Home extends React.Component {
                 style={{
                   visibility: "visible",
                   color: "blue",
-                  margin: 10,
-                  fontSize: 40,
+                  margin: isMobile ? 5 : 10,
+                  fontSize: isMobile ? 20 : 40,
                 }}
                 onClick={() => this.next_review()}
                 size="xl"

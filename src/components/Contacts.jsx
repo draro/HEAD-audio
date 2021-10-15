@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import React from "react";
 import { withStyles } from "@material-ui/styles";
 import Grid from "@mui/material/Grid";
@@ -87,6 +88,8 @@ const styles = {
     fontSize: "80px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "30px" },
+    ["@media (max-width:1000px, min-width:781px)"]: { fontSize: "60px" },
   },
   headSubTitle: {
     fontFamily: "Usuzi",
@@ -94,16 +97,20 @@ const styles = {
     fontSize: "50px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "20px" },
+    ["@media (max-width:1000px, min-width:781px)"]: { fontSize: "40px" },
   },
   welcome: {
-    fontFamily: "Arial",
+    fontFamily: "Usuzi",
     color: "white",
-    fontSize: "60px",
+    fontSize: "40px",
     display: "flex",
     justifyContent: "center",
-    width: "90%",
+    width: "100%",
     zIndex: 100,
     textDecoration: "underline",
+    ["@media (max-width:780px)"]: { fontSize: "15px" },
+    ["@media (max-width:1000px, min-width:781px)"]: { fontSize: "30px" },
   },
   inputs: {
     backgroundColor: "white",
@@ -181,39 +188,37 @@ class Contact extends React.Component {
   };
   render() {
     const { classes, t, colore } = this.props;
+    const isMobile = () => {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
     return (
       <>
         <div
           className={colore ? colore : classes.first}
-          style={{ display: "flex", flexWrap: "wrap" }}
+          // style={{ display: "flex", flexWrap: "wrap" }}
         >
           <h2 className={classes.headTitle} id="Contact">
             {t("Contact Us")}
           </h2>
-          <div style={{ flexDirection: "row", display: "flex" }}>
-            <div style={{ flex: 4, color: "white", fontFamily: "Usuzi" }}>
-              <h3 style={{ color: "white" }}>
-                E-mail:{" "}
-                <a
-                  href="mailto:info@head-audio.it"
-                  style={{ color: "white", textDecoration: "underline" }}
-                >
-                  info@head-audio.it
-                </a>{" "}
-                <br /> <br />
-                Lab: Via G.Pascoli, 12 - 00010
-                <br /> <br />
-                Setteville (RM)
-                <br /> <br />
-                Mobile: +39 335 7557983 <br /> <br />
-                Mobile: +39 335 7557984 <br /> <br />
-                Phone: 0774-391045
-                <br /> <br />
-                FAX: +39 06 233233590
-              </h3>
-            </div>
-            <div style={{ flex: 4 }}>
-              <h2 style={{ fontFamily: "Usuzi", color: "white" }}>
+          <div
+            style={{ flexDirection: "row", display: "flex", flexWrap: "wrap" }}
+          >
+            <div style={{ flex: isMobile() ? null : 4 }}>
+              <h2
+                style={{
+                  fontFamily: "Usuzi",
+                  color: "white",
+                  fontSize: isMobile() ? 16 : null,
+                }}
+              >
                 {t("Enter your Full name:")}
               </h2>{" "}
               <TextField
@@ -228,8 +233,15 @@ class Contact extends React.Component {
                 className={classes.inputs}
                 size="small"
                 fullWidth
+                style={{}}
               />
-              <h2 style={{ fontFamily: "Usuzi", color: "white" }}>
+              <h2
+                style={{
+                  fontFamily: "Usuzi",
+                  color: "white",
+                  fontSize: isMobile() ? 16 : null,
+                }}
+              >
                 {t("Enter your E-mail:")}
               </h2>
               <TextField
@@ -247,7 +259,13 @@ class Contact extends React.Component {
                 helperText={this.state.errorTextEmail}
                 fullWidth
               />
-              <h2 style={{ fontFamily: "Usuzi", color: "white" }}>
+              <h2
+                style={{
+                  fontFamily: "Usuzi",
+                  color: "white",
+                  fontSize: isMobile() ? 16 : null,
+                }}
+              >
                 {t("Enter your message:")}
               </h2>
               <TextField
@@ -297,6 +315,38 @@ class Contact extends React.Component {
                   </DialogActions>
                 </Dialog>
               ) : null}
+            </div>
+            <div
+              style={{
+                color: "white",
+                fontFamily: "Usuzi",
+                flex: isMobile() ? null : 4,
+              }}
+            >
+              {isMobile() && (
+                <>
+                  <br /> <br />
+                </>
+              )}
+              <h3 style={{ color: "white", fontSize: isMobile() ? 16 : null }}>
+                E-mail:{" "}
+                <a
+                  href="mailto:info@head-audio.it"
+                  style={{ color: "white", textDecoration: "underline" }}
+                >
+                  info@head-audio.it
+                </a>{" "}
+                <br /> <br />
+                Lab: Via G.Pascoli, 12 - 00010
+                <br /> <br />
+                Setteville (RM)
+                <br /> <br />
+                Mobile: +39 335 7557983 <br /> <br />
+                Mobile: +39 335 7557984 <br /> <br />
+                Phone: 0774-391045
+                <br /> <br />
+                FAX: +39 06 233233590
+              </h3>
             </div>
           </div>
         </div>

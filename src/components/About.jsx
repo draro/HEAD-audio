@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -79,6 +80,8 @@ const styles = {
     fontSize: "80px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "30px" },
+    ["@media (max-width:1000px,min-width:781px)"]: { fontSize: "60px" },
   },
   headSubTitle: {
     fontFamily: "Usuzi",
@@ -86,16 +89,20 @@ const styles = {
     fontSize: "50px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "20px" },
+    ["@media (max-width:1000px,min-width:781px)"]: { fontSize: "40px" },
   },
   welcome: {
-    fontFamily: "Arial",
+    fontFamily: "Usuzi",
     color: "white",
-    fontSize: "60px",
+    fontSize: "40px",
     display: "flex",
     justifyContent: "center",
-    width: "90%",
+    width: "100%",
     zIndex: 100,
     textDecoration: "underline",
+    ["@media (max-width:780px)"]: { fontSize: "15px" },
+    ["@media (max-width:1000px,min-width:781px)"]: { fontSize: "30px" },
   },
 };
 class About extends React.Component {
@@ -105,6 +112,17 @@ class About extends React.Component {
   }
   render() {
     const { classes, t } = this.props;
+    const isMobile = () => {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
     return (
       <>
         <div className={classes.first} style={{ flexDirection: "column" }}>
@@ -132,7 +150,13 @@ class About extends React.Component {
             <img src="../assets/vision.jpg" alt="team" />
           </div>
           <div>
-            <h2 style={{ color: "white" }}>
+            <h2
+              style={{
+                color: "white",
+                fontSize: isMobile() ? 16 : null,
+                width: isMobile() ? "90vw" : null,
+              }}
+            >
               {t(
                 "HEAD (High End Audio Devices) represents a young brand with the aim of creating highly innovative products for high quality audio listening. In the beginning our efforts have focused on the realization of custom projects for a few selected customers. Given the excellent feedback received, we have decided to offer some of our achievements to the wider public, as the result of expertise established over more than 20 years of high fidelity realizations (both in electronics and in the loudspeakers). Our products are entirely and proudly handcrafted in Italy. The small differences and imperfections of the finish are not an indication of poor accuracy, but are present to witness the hand of the craftsman that makes our products almost unique. High quality manufacturing of our products is comparably superior to mass-produced devices, which can not, for obvious limitations of the industrial production process, present the same care, particularly as regards the electroacoustic aspects. An integral part of the production process is represented by listening sessions of each of our products, through the use of selected and representative musical programs of various genres, in a defined environment and set-up. This last stage of the production process is in our opinion essential to guarantee the quality of the product and to verify that the final yield is the one expected."
               )}

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { withTranslation } from "react-i18next";
@@ -80,6 +81,8 @@ const styles = {
     fontSize: "80px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "30px" },
+    ["@media (max-width:1000px,min-width:781px)"]: { fontSize: "60px" },
   },
   headSubTitle: {
     fontFamily: "Usuzi",
@@ -87,16 +90,20 @@ const styles = {
     fontSize: "50px",
     // opacity: 1,
     zIndex: 100,
+    ["@media (max-width:780px)"]: { fontSize: "20px" },
+    ["@media (max-width:1000px,min-width:781px)"]: { fontSize: "40px" },
   },
   welcome: {
-    fontFamily: "Arial",
+    fontFamily: "Usuzi",
     color: "white",
-    fontSize: "60px",
+    fontSize: "40px",
     display: "flex",
     justifyContent: "center",
-    width: "90%",
+    width: "100%",
     zIndex: 100,
     textDecoration: "underline",
+    ["@media (max-width:780px)"]: { fontSize: "15px" },
+    ["@media (max-width:1000px,min-width:781px)"]: { fontSize: "30px" },
   },
 };
 class Products extends React.Component {

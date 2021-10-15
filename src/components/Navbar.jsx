@@ -223,12 +223,12 @@ class Navbar extends React.Component {
                 onClose={this.handleCloseLanguage}
               >
                 <MenuItem onClick={() => this.changeLanguage("en")}>
-                  English
+                  {t("English")}
                 </MenuItem>
                 <MenuItem onClick={() => this.changeLanguage("it")}>
-                  Italian
+                  {t("Italian")}
                 </MenuItem>
-                <MenuItem onClick={() => this.changeLanguage("fr")}>
+                {/* <MenuItem onClick={() => this.changeLanguage("fr")}>
                   French
                 </MenuItem>
                 <MenuItem onClick={() => this.changeLanguage("es")}>
@@ -236,7 +236,7 @@ class Navbar extends React.Component {
                 </MenuItem>
                 <MenuItem onClick={() => this.changeLanguage("ru")}>
                   {t("Russian")}
-                </MenuItem>
+                </MenuItem> */}
               </Menu>
               {/* <FormControlLabel
           control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
