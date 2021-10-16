@@ -132,7 +132,13 @@ class About extends React.Component {
             <img src="../assets/team.jpg" alt="team" />
           </div>
           <div>
-            <h2 style={{ color: "white" }}>
+            <h2
+              style={{
+                color: "white",
+                fontSize: isMobile() ? 16 : null,
+                width: isMobile() ? "90vw" : null,
+              }}
+            >
               {t(
                 "The history of the HEAD brand and in particular of the HEOLO loudspeaker started almost by chance more than 10 years ago, when Leonardo D'Aprano and Luigi Ponzo, accepted the challenge of creating an omnidirectional loudspeaker with an audiophile vocation. The original intuition, and subsequent prototyping and testing, led to the creation of a loudspeaker that exceeded the project's expectations and initial specifications. Across the years, the working group had expanded including, Graziano Ponzo and Marco Bartolotta, with work skills in high-tech sectors of industrial electronics, musical instruments manufacturing, aerospace quality connections. Our common idea has been always to create high-end audio products that should have had an unusual approach and innovative content. This approach transpires in every product manufactured by our group."
               )}

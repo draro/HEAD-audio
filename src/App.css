@@ -136,3 +136,12 @@ h8{
   from { translate: scale(0.2); };
   to { translate: scale(0.6) }
 }
+
+
+
+/* TEST GALLERY */
+@import "~react-image-gallery/styles/css/image-gallery.css";
+.image-gallery{
+  background-color: rgba(0,0,0,.6);
+  /* max-height: 70%; */
+}

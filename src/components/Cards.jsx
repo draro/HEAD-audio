@@ -244,7 +244,7 @@ class Cards extends React.Component {
               <ProductDescription
                 images={images}
                 title={title}
-                classes={classes}
+                // classes={classes}
                 callback={(state) => this.setState({ open: state })}
                 open={this.state.open}
               />
