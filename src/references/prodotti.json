@@ -1,6 +1,6 @@
 [{
         "title": "HEOLO - MICRO",
-        "picture_url": "assets/MicroCard.png",
+        "picture_url": "assets/micro/2.jpg",
         "link": "micro",
         "description": "A little miracle capable of a wide soundstage, reproducing all the details and nuance of your preferred music. Easy load for any amplifier delivering an incredible punch and sense of rhythm.",
         "images": ["../assets/micro/1.jpg", "../assets/micro/2.jpg", "../assets/micro/3.jpg", "../assets/micro/4.jpg", "../assets/micro/5.jpg", "../assets/micro/6.jpg", "../assets/micro/7.jpg", "../assets/micro/8.jpg", "../assets/micro/9.jpg", "../assets/micro/10.jpg", "../assets/micro/11.jpg", "../assets/micro/12.jpg", "../assets/micro/13.jpg"],
@@ -17,7 +17,7 @@
                 "cabinet": ["Woofer reverse-slanted mounting hole", "Stiffening structure with Cross-linking arms", "Reflex cabinet with no secondary resonances", "Wide down-firing vent with flared port", "Solid aluminium decorative elements"]
             },
             {
-                "finishing": ["Stain Brown or Black (custom finishig on any other color available on request)"]
+                "finishing": ["Stain Brown or Black (custom finishig on any other color or veneer available on request)"]
             }
         ]
     },
@@ -27,43 +27,111 @@
         "picture_url": "assets/sigma.png",
         "link": "sigma",
         "description": "The reference speaker for a no-compromise choice. The most performing speaker in our catalog. It represents a true listening experience.",
-        "images": ["../assets/Layer0.png",
-            "../assets/Layer1.png",
-            "../assets/h1.png",
-            "../assets/sigma.png",
-            "../assets/pi-greco.png"
+        "technical": [{
+                "general": ["28Hz - 20Khz", "Radiation Diagram: >2π steradian solid space", "300W Power Handling", "4Ω nominal impedence", "89 dB (1W at 1m) of efficency"]
+            },
+            {
+                "drivers": ["1 x 5.25” Mid-Woofer PPB, Suspension loaded", "1 x 1” Dome tweeter custom modified with HEAD RDL+MLP", "2 x 6.5” Woofer nomex,Bass reflex loaded"]
+            },
+            {
+                "cross-over": ["3-ways (2.2kHz)", "Speaker-specific correction circuitry", "Hi-Frequency two-position contour control"]
+            },
+            {
+                "cabinet": ["Woofer reverse-slanted mounting hole", "Stiffening structure with Cross-linking arms", "Reflex cabinet with no secondary resonances", "Wide down-firing vent with flared port", "Solid aluminium decorative elements", "Dimension: 97.5Hx32Wx40D"]
+            },
+            {
+                "finishing": ["Stain Brown or Black (custom finishig on any other color or veneer available on request)"]
+            }
         ]
     },
     {
         "title": "HEOLO - Pi GRECO",
-        "picture_url": "assets/pi-greco.png",
+        "picture_url": "assets/pigreco/2.jpg",
         "link": "pigreco",
         "description": "Best seller for an all-around performer. Wide and detailed soundstage with an incredibly deep and firm bass (40 Hz @ 0dB) with a double bass driver in 2.5-way configuration.",
-        "images": ["../assets/pigreco/1.jpg", "../assets/pigreco/2.jpg", "../assets/pigreco/3.jpg", "../assets/pigreco/4.jpg", "../assets/pigreco/5.jpg", "../assets/pigreco/6.jpg", "../assets/pigreco/7.jpg", "../assets/pigreco/8.jpg"]
+        "images": ["../assets/pigreco/1.jpg", "../assets/pigreco/2.jpg", "../assets/pigreco/3.jpg", "../assets/pigreco/4.jpg", "../assets/pigreco/5.jpg", "../assets/pigreco/6.jpg", "../assets/pigreco/7.jpg", "../assets/pigreco/8.jpg"],
+        "technical": [{
+                "general": ["40Hz - 20Khz", "Radiation Diagram: >2π steradian solid space", "100W Power Handling", "4Ω nominal impedence", "88 dB (1W at 1m) of efficency"]
+            },
+            {
+                "drivers": ["2 x 5.25” Mid-Woofer PPB, Bass reflex loaded", "1 x 1” Dome tweeter custom modified with HEAD RDL+MLP"]
+            },
+            {
+                "cross-over": ["2.5-ways (2.2kHz)", "Speaker-specific correction circuitry", "Hi-Frequency two-position contour control"]
+            },
+            {
+                "cabinet": ["Woofer reverse-slanted mounting hole", "Stiffening structure with Cross-linking arms", "Reflex cabinet with no secondary resonances", "Wide down-firing vent with flared port", "Solid aluminium decorative elements", "Dimension: 74Hx17Wx27D"]
+            },
+            {
+                "finishing": ["Stain Brown or Black (custom finishig on any other color or veneer available on request)"]
+            }
+        ]
     }, {
         "title": "M.U.SI.C.A.",
         "picture_url": "assets/musica.png",
         "link": "musica",
         "description": "Power Amplifier",
-        "images": ["../assets/musica/1.jpg", "../assets/musica/2.jpg", "../assets/musica/3.jpg"]
+        "images": ["../assets/musica/1.jpg", "../assets/musica/2.jpg", "../assets/musica/3.jpg"],
+        "technical": [{
+                "general": ["2-channel amplifier", "configurable in stereo or mono", "configurable for class A operation in the first Watt", "ArduinoTM microcontroller with function menu on LCD display. Customizable messages."]
+            },
+            {
+                "power handling": ["2x130WRMS/8Ohm",
+                    "2X250WRMS/4Ohm", "Mono: 800W"
+                ]
+            },
+            {
+                "frequency response": ["5Hz-100Khz +/- 0,5dB"]
+            },
+            {
+                "Signal/Noice Ratio": ["113dB"]
+            },
+            {
+                "› Slew Rate": ["40V/uS"]
+            },
+            {
+                "damping factor": ["145"]
+            }
+        ]
     }, {
         "title": "TU.LI.P.",
         "picture_url": "assets/tulip.jpg",
         "link": "tulip",
         "description": "Tube Like Preamplifier",
-        "images": ["../assets/tulip/1.jpg", "../assets/tulip/2.jpg"]
+        "images": ["../assets/tulip/1.jpg", "../assets/tulip/2.jpg"],
+        "technical": [{
+                "general": ["Stereo Line pre-amplifier", "configurable inputs", "4 Inputs", "ArduinoTM microcontroller with function menu on LCD display. Customizable messages.", "Remote control", "Proprietary Solid State Tube (SST) circuit"]
+            },
+            {
+                "frequency response": ["5Hz-25Khz +/- 1dB"]
+            },
+            {
+                "DAC": ["Cirrus Logic",
+                    "192KHz max", "USB-SPDiff"
+                ]
+            },
+            {
+                "output impedance": ["25 Ohm"]
+            },
+            {
+                "input impedance": ["56KOhm/25pF"]
+            },
+            {
+                "Sensitivity": ["500mV per 1V out"]
+            },
+            {
+                "damping factor": ["145"]
+            }
+        ]
 
     }, {
         "title": "H.E.A.D.-P & H.E.A.D.-S",
         "picture_url": "assets/head-s.jpg",
         "link": "cables",
         "description": "Our Cables",
-        "images": ["../assets/Layer0.png",
-            "../assets/Layer1.png",
-            "../assets/h1.png",
-            "../assets/sigma.png",
-            "../assets/pi-greco.png"
-        ]
+        "technical": [{
+            "Work in progress": ["..."]
+        }]
     }
 
 ]

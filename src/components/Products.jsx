@@ -135,7 +135,7 @@ class Products extends React.Component {
                 href="../assets/techDesription.pdf"
                 download
               >
-                Download the HEOLO Technical Description
+                {t("Download the HEOLO Technical Description")}
               </a>
             </Button>
             <div

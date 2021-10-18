@@ -222,9 +222,9 @@ class ProductDescription extends React.Component {
                     // let text;
                     return (
                       <div key={key}>
-                        <h3 style={{ color: "white", fontFamily: "Usuzi" }}>
+                        <h2 style={{ color: "white", fontFamily: "Usuzi" }}>
                           {key.toUpperCase()}:
-                        </h3>
+                        </h2>
                         {title[key].map((bullet) => {
                           return (
                             <h4 style={{ color: "white", fontFamily: "Usuzi" }}>

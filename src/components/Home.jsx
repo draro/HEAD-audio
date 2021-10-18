@@ -113,7 +113,7 @@ const styles = {
   welcome: {
     fontFamily: "Usuzi",
     color: "white",
-    fontSize: "40px",
+    fontSize: "30px",
     display: "flex",
     justifyContent: "center",
     width: "100%",
@@ -171,7 +171,8 @@ class Home extends React.Component {
         imagesList: [
           'url("./assets/bg.png")',
           'url("./assets/bg2.png")',
-          'url("./assets/bg3.png")',
+          'url("./assets/tulip/2.jpg")',
+          // 'url("./assets/bg3.png")',
         ],
       });
     }
@@ -245,6 +246,7 @@ class Home extends React.Component {
             delay={1}
             timingFunction="ease-out"
             className={classes.animatedimages}
+            style={{ width: "95vw" }}
           >
             {/* <div className={classes.bg} id="bg_img1"> */}
             <h1 className={classes.headTitle}>H.E.A.D. Audio</h1>
@@ -313,8 +315,8 @@ class Home extends React.Component {
                 style={{
                   visibility: "visible",
                   color: "blue",
-                  margin: isMobile ? 5 : 10,
-                  fontSize: isMobile ? 20 : 40,
+                  margin: isMobile() ? 5 : 10,
+                  fontSize: isMobile() ? 20 : 40,
                 }}
                 onClick={() => this.previous_review()}
                 size="xl"
@@ -327,8 +329,8 @@ class Home extends React.Component {
                 style={{
                   visibility: "visible",
                   color: "blue",
-                  margin: isMobile ? 5 : 10,
-                  fontSize: isMobile ? 20 : 40,
+                  margin: isMobile() ? 5 : 10,
+                  fontSize: isMobile() ? 20 : 40,
                 }}
                 onClick={() => this.next_review()}
                 size="xl"
