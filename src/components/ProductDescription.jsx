@@ -1,16 +1,12 @@
 /* eslint-disable no-useless-computed-key */
 import * as React from "react";
 import Dialog from "@mui/material/Dialog";
-import ListItemText from "@mui/material/ListItemText";
-import ListItem from "@mui/material/ListItem";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
-import { ImageList, ImageListItem, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import ImageGallery from "react-image-gallery";
 import { withStyles } from "@material-ui/styles";
 const styles = {
@@ -222,7 +218,7 @@ class ProductDescription extends React.Component {
               {technical &&
                 technical.map((title) => {
                   for (const key in title) {
-                    let text;
+                    // let text;
                     return (
                       <div key={key}>
                         <h3 style={{ color: "white", fontFamily: "Usuzi" }}>

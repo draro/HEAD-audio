@@ -6,21 +6,11 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import ReactCardFlip from "react-card-flip";
-import Link from "react-router-dom/Link";
 import { withStyles } from "@material-ui/styles";
 import { Button } from "@mui/material";
 import { withTranslation } from "react-i18next";
-import Dialog from "@mui/material/Dialog";
-import ListItemText from "@mui/material/ListItemText";
-import ListItem from "@mui/material/ListItem";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
-import Slide from "@mui/material/Slide";
-import { ImageList, ImageListItem } from "@material-ui/core";
+
+// import Slide from "@mui/material/Slide";
 import ProductDescription from "./ProductDescription";
 
 const styles = {
@@ -190,22 +180,13 @@ class Cards extends React.Component {
     this.setState({ isFlipped: !this.state.isFlipped });
   }
   render() {
-    const {
-      title,
-      picture_url,
-      link,
-      description,
-      t,
-      showMore,
-      images,
-      classes,
-      technical,
-    } = this.props;
+    const { title, picture_url, description, t, showMore, images, technical } =
+      this.props;
     console.log(this.props);
-    const Transition = React.forwardRef(function Transition(props, ref) {
-      return <Slide direction="up" ref={ref} {...props} />;
-    });
-    const regex = /[.,\s]/g;
+    // const Transition = React.forwardRef(function Transition(props, ref) {
+    //   return <Slide direction="up" ref={ref} {...props} />;
+    // });
+    // const regex = /[.,\s]/g;
 
     const not_flipped = () => {
       return (
@@ -263,6 +244,7 @@ class Cards extends React.Component {
             style={{ margin: 30, backgroundColor: "grey" }}
             id={title}
             onMouseEnter={showMore === "true" ? null : () => this.flip_image()}
+            onTouchEnd={showMore === "true" ? null : () => this.flip_image()}
             // onMouseLeave={
             //   showMore === "true"
             //     ? () => this.transform_image("out", title)
@@ -281,6 +263,7 @@ class Cards extends React.Component {
             //     : null
             // }
             onMouseLeave={showMore === "true" ? null : () => this.flip_image()}
+            onTouchEnd={showMore === "true" ? null : () => this.flip_image()}
           >
             <CardContent style={{ minHeight: "100%" }}>
               <Button
