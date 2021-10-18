@@ -299,7 +299,7 @@ class Home extends React.Component {
         </div>
         {this.state.revNum >= 0 ? (
           <div className={classes.first} style={{ flexDirection: "column" }}>
-            <h2 className={classes.headSubTitle}>
+            <h2 className={classes.headTitle}>
               {t("What they say about HEOLO")}
             </h2>
             <div

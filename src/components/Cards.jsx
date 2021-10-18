@@ -263,12 +263,12 @@ class Cards extends React.Component {
             //     : null
             // }
             onMouseLeave={showMore === "true" ? null : () => this.flip_image()}
-            onTouchEnd={showMore === "true" ? null : () => this.flip_image()}
           >
             <CardContent style={{ minHeight: "100%" }}>
               <Button
                 style={{ color: "white" }}
                 onClick={() => this.handleClick()}
+
                 // component={Link}
                 // to={`/products-accessories#${title
                 //   .split("-")[0]
@@ -287,6 +287,9 @@ class Cards extends React.Component {
                 technical={technical}
               />
               <CardMedia
+                onTouchEnd={
+                  showMore === "true" ? null : () => this.flip_image()
+                }
                 component="img"
                 // height="194"
                 image={picture_url}

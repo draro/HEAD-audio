@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-useless-computed-key */
 import * as React from "react";
 import Dialog from "@mui/material/Dialog";

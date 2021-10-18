@@ -146,3 +146,18 @@ h8{
 .overflow-hidden{
   overflow-y: hidden !important;
 }
+#backToTop{
+  color:white;
+  z-index: 1000;
+  position: fixed; 
+   /* width: 100%; */
+   left: 50%;
+   bottom:10%;
+   /* height: 50px; */
+   /* font-size: 3rem; */
+   /* z-index: 1; */
+   cursor: pointer;
+   color: white;
+   /* background-color:white; */
+   border-radius: 50%;
+}

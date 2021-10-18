@@ -15,6 +15,7 @@ import Products from "./components/Products";
 // import Musica from "./components/Musica";
 // import Cables from "./components/Cables";
 import products from "./references/prodotti.json";
+import BackToTop from "./components/ScrollUp";
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",
@@ -40,6 +41,8 @@ class App extends React.Component {
       <div className="App">
         {/* <Provider store={store}> */}
         <Router>
+          <BackToTop />
+
           <Navbar />
 
           <div className="container">
