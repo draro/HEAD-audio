@@ -37,7 +37,7 @@ const styles = {
     },
   },
   second: {
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(0,0,0,0.6)",
     // width: "95%",
     textAlign: "center",
     justifyContent: "center",
@@ -156,7 +156,7 @@ class ProductDescription extends React.Component {
     // setOpen(false);
   };
   render() {
-    const { classes, open, title, images, callback } = this.props;
+    const { classes, open, title, images, technical } = this.props;
 
     const imageBuild = (images) => {
       let imageSlider = [];
@@ -165,7 +165,8 @@ class ProductDescription extends React.Component {
       });
       return imageSlider;
     };
-    console.log("CLASSES= ", classes);
+    // console.log("CLASSES= ", classes);
+    console.log("technical = ", technical);
     return (
       <div>
         {open && (
@@ -202,28 +203,65 @@ class ProductDescription extends React.Component {
                 </Typography>
               </Toolbar>
             </AppBar>
-            <div className={classes.first}>
-              <h8
+            <div className={classes.first} style={{ flexDirection: "column" }}>
+              <h2
                 classname={classes.headTitle}
-                style={{ color: "white", fontSize: "30px" }}
+                style={{
+                  color: "white",
+                  fontSize: "30px",
+                  fontFamily: "Usuzi",
+                }}
               >
                 Technical Specification
-              </h8>
+              </h2>
             </div>
-            {images && (
-              //   <ImageList cellHeight={220} className="" cols={3}>
-              //     {images.map((tile) => (
-              //       <ImageListItem key={tile} cols={1}>
-              //         <img src={tile} alt={tile} />
-              //       </ImageListItem>
-              //     ))}
-              //   </ImageList>
-              <ImageGallery
-                items={imageBuild(images)}
-                style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-              />
-            )}
-            {/* </div> */}
+            <div
+              className={classes.second}
+              style={{ flexDirection: "column", display: "flex" }}
+            >
+              {technical &&
+                technical.map((title) => {
+                  for (const key in title) {
+                    let text;
+                    return (
+                      <div>
+                        <h3 style={{ color: "white", fontFamily: "Usuzi" }}>
+                          {key.toUpperCase()}:
+                        </h3>
+                        {title[key].map((bullet) => {
+                          return (
+                            <h4 style={{ color: "white", fontFamily: "Usuzi" }}>
+                              {bullet}
+                            </h4>
+                          );
+                        })}
+                      </div>
+                    );
+                  }
+                })}
+            </div>
+
+            <div className={classes.first}>
+              <h2 className={classes.headSubTitle} style={{ color: "white" }}>
+                Gallery
+              </h2>
+            </div>
+            <div className={classes.second}>
+              {images && (
+                //   <ImageList cellHeight={220} className="" cols={3}>
+                //     {images.map((tile) => (
+                //       <ImageListItem key={tile} cols={1}>
+                //         <img src={tile} alt={tile} />
+                //       </ImageListItem>
+                //     ))}
+                //   </ImageList>
+                <ImageGallery
+                  items={imageBuild(images)}
+                  style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+                />
+              )}
+            </div>
+
             {/* <List>
                   <ListItem button>
                     <ListItemText

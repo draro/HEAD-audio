@@ -289,6 +289,7 @@ class Home extends React.Component {
                     picture_url={card.picture_url}
                     link={card.link}
                     description={card.description}
+                    // technical={card.technical}
                   ></Cards>
                 );
               })}

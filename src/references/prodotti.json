@@ -1,15 +1,27 @@
 [{
         "title": "HEOLO - MICRO",
-        "picture_url": "assets/micro.png",
+        "picture_url": "assets/MicroCard.png",
         "link": "micro",
         "description": "A little miracle capable of a wide soundstage, reproducing all the details and nuance of your preferred music. Easy load for any amplifier delivering an incredible punch and sense of rhythm.",
-        "images": ["../assets/Layer0.png",
-            "../assets/Layer1.png",
-            "../assets/h1.png",
-            "../assets/sigma.png",
-            "../assets/pi-greco.png"
+        "images": ["../assets/micro/1.jpg", "../assets/micro/2.jpg", "../assets/micro/3.jpg", "../assets/micro/4.jpg", "../assets/micro/5.jpg", "../assets/micro/6.jpg", "../assets/micro/7.jpg", "../assets/micro/8.jpg", "../assets/micro/9.jpg", "../assets/micro/10.jpg", "../assets/micro/11.jpg", "../assets/micro/12.jpg", "../assets/micro/13.jpg"],
+        "technical": [{
+                "general": ["50Hz - 20Khz", "Radiation Diagram: >2π steradian solid space", "100W Power Handling", "6Ω nominal impedence"]
+            },
+            {
+                "drivers": ["1 x 5.25” Mid-Woofer PPB, Bass reflex loaded", "1 x 1” Dome tweeter custom modified with HEAD RDL+MLP"]
+            },
+            {
+                "cross-over": ["2-ways (2.2kHz)", "Speaker-specific correction circuitry", "Hi-Frequency two-position contour control"]
+            },
+            {
+                "cabinet": ["Woofer reverse-slanted mounting hole", "Stiffening structure with Cross-linking arms", "Reflex cabinet with no secondary resonances", "Wide down-firing vent with flared port", "Solid aluminium decorative elements"]
+            },
+            {
+                "finishing": ["Stain Brown or Black (custom finishig on any other color available on request)"]
+            }
         ]
     },
+
     {
         "title": "HEOLO - SIGMA",
         "picture_url": "assets/sigma.png",

@@ -194,6 +194,7 @@ class Cards extends React.Component {
       showMore,
       images,
       classes,
+      technical,
     } = this.props;
     console.log(this.props);
     const Transition = React.forwardRef(function Transition(props, ref) {
@@ -211,7 +212,7 @@ class Cards extends React.Component {
           {this.state.zoom === 0 ? (
             <CardMedia
               component="img"
-              height="194"
+              height="300px"
               image={picture_url}
               alt={title}
               id={`media_${title}`}
@@ -247,6 +248,7 @@ class Cards extends React.Component {
                 // classes={classes}
                 callback={(state) => this.setState({ open: state })}
                 open={this.state.open}
+                technical={technical}
               />
             </>
           ) : null}
@@ -263,16 +265,12 @@ class Cards extends React.Component {
             sx={{ width: 345 }}
             style={{ margin: 30, backgroundColor: "grey" }}
             id={title}
-            onMouseEnter={
-              showMore === "true"
-                ? () => this.transform_image("in", title)
-                : () => this.flip_image()
-            }
-            onMouseLeave={
-              showMore === "true"
-                ? () => this.transform_image("out", title)
-                : null
-            }
+            onMouseEnter={showMore === "true" ? null : () => this.flip_image()}
+            // onMouseLeave={
+            //   showMore === "true"
+            //     ? () => this.transform_image("out", title)
+            //     : null
+            // }
           >
             {not_flipped()}
           </Card>
@@ -280,22 +278,19 @@ class Cards extends React.Component {
             sx={{ width: 345, minHeight: "400px" }}
             style={{ margin: 30, backgroundColor: "grey" }}
             id={title}
-            onMouseEnter={
-              showMore === "true"
-                ? () => this.transform_image("in", title)
-                : null
-            }
-            onMouseLeave={
-              showMore === "true"
-                ? () => this.transform_image("out", title)
-                : () => this.flip_image()
-            }
+            // onMouseEnter={
+            //   showMore === "true"
+            //     ? () => this.transform_image("in", title)
+            //     : null
+            // }
+            onMouseLeave={showMore === "true" ? null : () => this.flip_image()}
           >
             <CardContent style={{ minHeight: "100%" }}>
               <Button
                 style={{ color: "white" }}
                 component={Link}
                 to={`/products-accessories#${title
+                  .split("-")[0]
                   .toLowerCase()
                   .replace(regex, "")}`}
               >

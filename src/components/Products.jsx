@@ -112,7 +112,9 @@ class Products extends React.Component {
     return (
       <>
         <div className={classes.first}>
-          <h2 className={classes.headTitle}>H.E.O.LO.</h2>
+          <h2 className={classes.headTitle} id="heolo">
+            H.E.O.LO.
+          </h2>
           <h2 className={classes.headSubTitle}>
             <strong>H</strong>igh <strong>E</strong>nd <strong>O</strong>
             mnidirectional <strong>Lo</strong>udspeakers
@@ -142,7 +144,6 @@ class Products extends React.Component {
                 justifyContent: "space-around",
                 flexWrap: "wrap",
               }}
-              id="heolo"
             >
               {products.map((card) => {
                 if (card.title.includes("HEOLO")) {
@@ -155,6 +156,7 @@ class Products extends React.Component {
                       description={card.description}
                       showMore="true"
                       images={card.images}
+                      technical={card.technical}
                     ></Cards>
                   );
                 } else {
@@ -165,7 +167,9 @@ class Products extends React.Component {
           </div>
         </div>
         <div className={classes.second}>
-          <h2 className={classes.headTitle}>M.U.SI.C.A.</h2>
+          <h2 className={classes.headTitle} id="musica">
+            M.U.SI.C.A.
+          </h2>
           <h3 className={classes.headSubTitle}>
             MODULAR UNIT SILICON CORE AMPLIFIER
           </h3>
@@ -180,7 +184,6 @@ class Products extends React.Component {
               justifyContent: "space-around",
               flexWrap: "wrap",
             }}
-            id="musica"
           >
             {products.map((card) => {
               if (card.title.includes("M.U.SI.C.A.")) {
@@ -201,7 +204,7 @@ class Products extends React.Component {
             })}
           </div>
         </div>
-        <div className={classes.first}>
+        <div className={classes.first} id="tulip">
           <h2 className={classes.headTitle}>TU.LI.P.</h2>
           <h3 className={classes.headSubTitle}>TUBE LIKE PREAMPLIFIER</h3>
           <h3 style={{ color: "white" }}>
@@ -215,7 +218,6 @@ class Products extends React.Component {
               justifyContent: "space-around",
               flexWrap: "wrap",
             }}
-            id="tulip"
           >
             {products.map((card) => {
               if (card.title.includes("TU.LI.P.")) {
