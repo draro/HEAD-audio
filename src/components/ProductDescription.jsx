@@ -224,7 +224,7 @@ class ProductDescription extends React.Component {
                   for (const key in title) {
                     let text;
                     return (
-                      <div>
+                      <div key={key}>
                         <h3 style={{ color: "white", fontFamily: "Usuzi" }}>
                           {key.toUpperCase()}:
                         </h3>

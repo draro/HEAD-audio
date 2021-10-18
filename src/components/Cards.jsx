@@ -157,6 +157,9 @@ class Cards extends React.Component {
     };
   }
   handleClick(e) {
+    const htmlElement = document.getElementById("html");
+    console.log("HTML = ", htmlElement);
+    htmlElement.classList.add("overflow-hidden");
     this.setState({ open: true }, () => {
       console.log(this.state.open);
     });
@@ -165,6 +168,8 @@ class Cards extends React.Component {
     this.setState({ open: false }, () => {
       console.log(this.state.open);
     });
+    const htmlElement = document.querySelector("html");
+    htmlElement.classList.remove("overflow-hidden");
   }
   transform_image(input, title) {
     // alert("transform image");
@@ -238,18 +243,10 @@ class Cards extends React.Component {
             <>
               <Button
                 style={{ color: "white" }}
-                onClick={() => this.setState({ open: true })}
+                onClick={() => this.handleClick()}
               >
                 {t("View more")}
               </Button>
-              <ProductDescription
-                images={images}
-                title={title}
-                // classes={classes}
-                callback={(state) => this.setState({ open: state })}
-                open={this.state.open}
-                technical={technical}
-              />
             </>
           ) : null}
         </>
@@ -288,14 +285,24 @@ class Cards extends React.Component {
             <CardContent style={{ minHeight: "100%" }}>
               <Button
                 style={{ color: "white" }}
-                component={Link}
-                to={`/products-accessories#${title
-                  .split("-")[0]
-                  .toLowerCase()
-                  .replace(regex, "")}`}
+                onClick={() => this.handleClick()}
+                // component={Link}
+                // to={`/products-accessories#${title
+                //   .split("-")[0]
+                //   .toLowerCase()
+                //   .replace(regex, "")}`}
               >
                 {t("View more")}
               </Button>
+              <ProductDescription
+                images={images}
+                title={title}
+                // classes={classes}
+                key={title}
+                callback={(state) => this.handleClose()}
+                open={this.state.open}
+                technical={technical}
+              />
               <CardMedia
                 component="img"
                 // height="194"
