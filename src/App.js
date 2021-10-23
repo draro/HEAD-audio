@@ -16,6 +16,7 @@ import Products from "./components/Products";
 // import Cables from "./components/Cables";
 import products from "./references/prodotti.json";
 import BackToTop from "./components/ScrollUp";
+// import Bot from "./components/ChatBot";
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",
@@ -42,7 +43,9 @@ class App extends React.Component {
         {/* <Provider store={store}> */}
         <Router>
           <BackToTop />
-
+          <div style={{ position: "fixed", bottom: "5%", zIndex: 100 }}>
+            {/* <Bot /> */}
+          </div>
           <Navbar />
 
           <div className="container">

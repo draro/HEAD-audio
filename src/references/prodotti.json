@@ -17,16 +17,17 @@
                 "cabinet": ["Woofer reverse-slanted mounting hole", "Stiffening structure with Cross-linking arms", "Reflex cabinet with no secondary resonances", "Wide down-firing vent with flared port", "Solid aluminium decorative elements"]
             },
             {
-                "finishing": ["Stain Brown or Black (custom finishig on any other color or veneer available on request)"]
+                "finishing": ["Satin Brown or Black (custom finishig on any other color or veneer available on request)"]
             }
         ]
     },
 
     {
         "title": "HEOLO - SIGMA",
-        "picture_url": "assets/sigma.png",
+        "picture_url": "assets/sigma/1.png",
         "link": "sigma",
-        "description": "The reference speaker for a no-compromise choice. The most performing speaker in our catalog. It represents a true listening experience.",
+        "description": "The reference speaker for a no compromise choice. The highest performance speaker in our range. It represents a true listening experience.",
+        "images": ["../assets/sigma/1.png"],
         "technical": [{
                 "general": ["28Hz - 20Khz", "Radiation Diagram: >2π steradian solid space", "300W Power Handling", "4Ω nominal impedence", "89 dB (1W at 1m) of efficency"]
             },
@@ -46,10 +47,10 @@
     },
     {
         "title": "HEOLO - Pi GRECO",
-        "picture_url": "assets/pigreco/2.jpg",
+        "picture_url": "assets/pigreco/9.png",
         "link": "pigreco",
-        "description": "Best seller for an all-around performer. Wide and detailed soundstage with an incredibly deep and firm bass (40 Hz @ 0dB) with a double bass driver in 2.5-way configuration.",
-        "images": ["../assets/pigreco/1.jpg", "../assets/pigreco/2.jpg", "../assets/pigreco/3.jpg", "../assets/pigreco/4.jpg", "../assets/pigreco/5.jpg", "../assets/pigreco/6.jpg", "../assets/pigreco/7.jpg", "../assets/pigreco/8.jpg"],
+        "description": "Best selling all-round performer. A wide and detailed soundstage with incredibly deep and tight bass (40Hz @ 0dB) from its twin bass drivers in a 2.5-way configuration.",
+        "images": ["../assets/pigreco/1.jpg", "../assets/pigreco/2.jpg", "../assets/pigreco/3.jpg", "../assets/pigreco/4.jpg", "../assets/pigreco/5.jpg", "../assets/pigreco/6.jpg", "../assets/pigreco/7.jpg", "../assets/pigreco/8.jpg", "../assets/pigreco/9.jpg"],
         "technical": [{
                 "general": ["40Hz - 20Khz", "Radiation Diagram: >2π steradian solid space", "100W Power Handling", "4Ω nominal impedence", "88 dB (1W at 1m) of efficency"]
             },
@@ -98,7 +99,7 @@
         "picture_url": "assets/tulip.jpg",
         "link": "tulip",
         "description": "Tube Like Preamplifier",
-        "images": ["../assets/tulip/1.jpg", "../assets/tulip/2.jpg"],
+        "images": ["../assets/tulip/1.jpg", "../assets/tulip/2.jpg", "../assets/tulip/3.jpg"],
         "technical": [{
                 "general": ["Stereo Line pre-amplifier", "configurable inputs", "4 Inputs", "ArduinoTM microcontroller with function menu on LCD display. Customizable messages.", "Remote control", "Proprietary Solid State Tube (SST) circuit"]
             },
@@ -125,10 +126,10 @@
         ]
 
     }, {
-        "title": "H.E.A.D.-P & H.E.A.D.-S",
+        "title": "Cables & Accessories",
         "picture_url": "assets/head-s.jpg",
         "link": "cables",
-        "description": "Our Cables",
+        "description": "Our Cables & Accessories",
         "technical": [{
             "Work in progress": ["..."]
         }]

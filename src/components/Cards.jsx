@@ -180,8 +180,15 @@ class Cards extends React.Component {
     this.setState({ isFlipped: !this.state.isFlipped });
   }
   render() {
-    const { title, picture_url, description, t, showMore, images, technical } =
-      this.props;
+    const {
+      title,
+      picture_url,
+      description,
+      t,
+      showMore,
+      images,
+      technical,
+    } = this.props;
     console.log(this.props);
     // const Transition = React.forwardRef(function Transition(props, ref) {
     //   return <Slide direction="up" ref={ref} {...props} />;
@@ -192,7 +199,7 @@ class Cards extends React.Component {
       return (
         <>
           <CardHeader
-            title={title}
+            title={t(title)}
             //   subheader="September 14, 2016"
           />
           {this.state.zoom === 0 ? (
@@ -202,6 +209,7 @@ class Cards extends React.Component {
               image={picture_url}
               alt={title}
               id={`media_${title}`}
+              style={{ objectFit: "contain" }}
             />
           ) : (
             <CardMedia
@@ -216,14 +224,14 @@ class Cards extends React.Component {
             />
           )}
           <CardContent style={{ minHeight: "100px" }}>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" style={{ color: "white" }}>
               {t(description)}
             </Typography>
           </CardContent>
           {showMore === "true" ? (
             <>
               <Button
-                style={{ color: "white" }}
+                style={{ color: "blue" }}
                 onClick={() => this.handleClick()}
               >
                 {t("View more")}
@@ -266,7 +274,7 @@ class Cards extends React.Component {
           >
             <CardContent style={{ minHeight: "100%" }}>
               <Button
-                style={{ color: "white" }}
+                style={{ color: "blue" }}
                 onClick={() => this.handleClick()}
 
                 // component={Link}
@@ -285,6 +293,7 @@ class Cards extends React.Component {
                 callback={(state) => this.handleClose()}
                 open={this.state.open}
                 technical={technical}
+                description={t(description)}
               />
               <CardMedia
                 onTouchEnd={

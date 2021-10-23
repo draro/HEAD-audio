@@ -153,7 +153,7 @@ class ProductDescription extends React.Component {
     // setOpen(false);
   };
   render() {
-    const { classes, open, title, images, technical } = this.props;
+    const { classes, open, title, images, technical, description } = this.props;
 
     const imageBuild = (images) => {
       let imageSlider = [];
@@ -190,17 +190,43 @@ class ProductDescription extends React.Component {
                 >
                   <CloseIcon />
                 </IconButton>
-                <Typography
-                  sx={{ ml: 2, flex: 1 }}
-                  style={{ fontFamily: "Usuzi" }}
-                  variant="h3"
-                  component="div"
+                <div
+                  style={{
+                    flexDirection: "column",
+                    display: "flex",
+                    flexWrap: "wrap",
+                  }}
                 >
-                  {title}
-                </Typography>
+                  <Typography
+                    sx={{ ml: 2, flex: 1 }}
+                    style={{ fontFamily: "Usuzi" }}
+                    variant="h3"
+                    component="div"
+                  >
+                    {title}
+                  </Typography>
+                  <Typography
+                    sx={{ ml: 2, flex: 2 }}
+                    style={{ fontFamily: "Usuzi" }}
+                    variant="h4"
+                    component="div"
+                  >
+                    {title.startsWith("HEOLO")
+                      ? "High End Omnidirectional Loudspeaker"
+                      : title === "M.U.SI.C.A."
+                      ? "Modular Unit Silicon Core Amplifier"
+                      : title === "TU.LI.P."
+                      ? "TUbe Like Preamplifier"
+                      : ""}
+                  </Typography>
+                </div>
               </Toolbar>
             </AppBar>
-            <div className={classes.first} style={{ flexDirection: "column" }}>
+            <div
+              className={classes.first}
+              style={{ flexDirection: "column", color: "white" }}
+            >
+              {description}
               <h2
                 classname={classes.headTitle}
                 style={{
@@ -226,11 +252,7 @@ class ProductDescription extends React.Component {
                           {key.toUpperCase()}:
                         </h2>
                         {title[key].map((bullet) => {
-                          return (
-                            <h4 style={{ color: "white", fontFamily: "Usuzi" }}>
-                              {bullet}
-                            </h4>
-                          );
+                          return <h4 style={{ color: "white" }}>{bullet}</h4>;
                         })}
                       </div>
                     );

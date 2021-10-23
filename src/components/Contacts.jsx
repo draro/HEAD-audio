@@ -12,6 +12,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { withTranslation } from "react-i18next";
+import { Visibility } from "@mui/icons-material";
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",
@@ -161,8 +162,7 @@ class Contact extends React.Component {
     }
   };
   validateEmail(email) {
-    const re =
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
   onSubmit = (e) => {
@@ -175,19 +175,19 @@ class Contact extends React.Component {
     ) {
       e.preventDefault();
       init("user_WXPIhdhFdfgTpqnYfP0m6");
-      send("heolo", "heolo", this.state)
+      send("heolo2", "heolo", this.state)
         .then((response) => {
-          console.log("SUCCESS!", response.status, response.text);
+          this.setState({ sendError: "success", open: true });
         })
         .catch((err) => {
-          this.setState({ sendError: true, open: true });
+          this.setState({ sendError: "error", open: true });
         });
     } else {
-      this.setState({ sendError: true, open: true });
+      this.setState({ sendError: "error", open: true });
     }
   };
   render() {
-    const { classes, t, colore } = this.props;
+    const { classes, t, colore, small } = this.props;
     const isMobile = () => {
       if (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -205,18 +205,22 @@ class Contact extends React.Component {
           className={colore ? colore : classes.first}
           // style={{ display: "flex", flexWrap: "wrap" }}
         >
-          <h2 className={classes.headTitle} id="Contact">
+          <h2
+            className={classes.headTitle}
+            id="Contact"
+            style={small ? { display: "none" } : {}}
+          >
             {t("Contact Us")}
           </h2>
           <div
             style={{ flexDirection: "row", display: "flex", flexWrap: "wrap" }}
           >
-            <div style={{ flex: isMobile() ? null : 4 }}>
+            <div style={{ flex: isMobile() || small ? null : 4 }}>
               <h2
                 style={{
                   fontFamily: "Usuzi",
                   color: "white",
-                  fontSize: isMobile() ? 16 : null,
+                  fontSize: isMobile() || small ? 16 : null,
                 }}
               >
                 {t("Enter your Full name:")}
@@ -239,7 +243,7 @@ class Contact extends React.Component {
                 style={{
                   fontFamily: "Usuzi",
                   color: "white",
-                  fontSize: isMobile() ? 16 : null,
+                  fontSize: isMobile() || small ? 16 : null,
                 }}
               >
                 {t("Enter your E-mail:")}
@@ -263,7 +267,7 @@ class Contact extends React.Component {
                 style={{
                   fontFamily: "Usuzi",
                   color: "white",
-                  fontSize: isMobile() ? 16 : null,
+                  fontSize: isMobile() || small ? 16 : null,
                 }}
               >
                 {t("Enter your message:")}
@@ -301,13 +305,19 @@ class Contact extends React.Component {
                   aria-describedby="alert-dialog-description"
                 >
                   <DialogTitle id="alert-dialog-title">
-                    {t("Error sending emails")}
+                    {this.state.sendError === "error"
+                      ? t("Error sending emails")
+                      : t("Email Sent Successfully")}
                   </DialogTitle>
                   <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                      {t(
-                        "It seems we have a problem with the contact form. Please send us an email at info@head-audio.it. We will get back to you shortly"
-                      )}
+                      {this.state.sendError === "error"
+                        ? t(
+                            "It seems we have a problem with the contact form. Please send us an email at info@head-audio.it. We will get back to you shortly"
+                          )
+                        : t(
+                            "Thank you for your message, we will be back to you within 48h."
+                          )}
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
@@ -320,15 +330,20 @@ class Contact extends React.Component {
               style={{
                 color: "white",
                 fontFamily: "Usuzi",
-                flex: isMobile() ? null : 4,
+                flex: isMobile() || small ? null : 4,
               }}
             >
-              {isMobile() && (
+              {(isMobile() || small) && (
                 <>
                   <br /> <br />
                 </>
               )}
-              <h3 style={{ color: "white", fontSize: isMobile() ? 16 : null }}>
+              <h3
+                style={{
+                  color: "white",
+                  fontSize: isMobile() || small ? 16 : null,
+                }}
+              >
                 E-mail:{" "}
                 <a
                   href="mailto:info@head-audio.it"
@@ -337,15 +352,12 @@ class Contact extends React.Component {
                   info@head-audio.it
                 </a>{" "}
                 <br /> <br />
-                Lab: Via G.Pascoli, 12 - 00010
+                PSC Elettronica Srl
+                <br />
+                Via Bruno Pontecorvo 4 A/B <br />
+                00012 Guidonia
                 <br /> <br />
-                Setteville (RM)
-                <br /> <br />
-                Mobile: +39 335 7557983 <br /> <br />
-                Mobile: +39 335 7557984 <br /> <br />
-                Phone: 0774-391045
-                <br /> <br />
-                FAX: +39 06 233233590
+                Mobile: +39 3289439975 <br />
               </h3>
             </div>
           </div>

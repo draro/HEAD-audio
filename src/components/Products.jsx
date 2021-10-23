@@ -5,6 +5,7 @@ import { withTranslation } from "react-i18next";
 import Cards from "./Cards";
 import products from "../references/prodotti.json";
 import { Button } from "@mui/material";
+import pdf from "../references/techDescription.pdf";
 const styles = {
   first: {
     backgroundColor: "rgba(0,0,0,0.82)",
@@ -122,7 +123,7 @@ class Products extends React.Component {
           <div style={{ flexDirection: "row" }}>
             <h3 style={{ color: "white" }}>
               {t(
-                "H.E.O.LO. is an innovative speaker designed to overcome the typical limits of traditional acoustic transduction systems. The listening experience with any HEOLO model is remarkable since the speakers literally 'disappear'. The speaker's position is practically not detectable while maintaining the focus and detail of each individual instrument. The timbre and tonal balance do not vary as the listening position changes, making the concept of sweet point obsolete. A technical solution that makes these speakers unique and inimitable"
+                "H.E.O.LO. is a major innovation which overcomes the typical limits of traditional speaker design. The listening experience with any H.E.O.L.O. model is remarkable because the speakers literally 'disappear'. The speakers position is essentially undetectable whilst they maintain the focus and detail of each individual instrument. The timbre and tonal balance do not vary as the listening position changes, so making the concept of “sweet-spot” obsolete. This technical innovation makes these speakers unique and inimitable."
               )}
             </h3>
             <Button variant="contained">
@@ -132,8 +133,9 @@ class Products extends React.Component {
                   fontFamily: "Usuzi",
                   textDecoration: "none",
                 }}
-                href="../assets/techDesription.pdf"
-                download
+                href={pdf}
+                target="_blank"
+                rel="noreferrer"
               >
                 {t("Download the HEOLO Technical Description")}
               </a>
@@ -175,7 +177,7 @@ class Products extends React.Component {
           </h3>
           <h3 style={{ color: "white" }}>
             {t(
-              "<<Power is nothing without control!>> so he quoted a famous commercial… and it is precisely on this principle that the design of our brand new amplifier is based. MUSICA, is an uncompromising “Speaker Driver”, characterized by an excellent ability to manage complex loads while maintaining an extreme linearity, a very low noise and a remarkable speed in the transient response. MUSICA is the first High End Amplifier that integrates Open Source HW technology! Inside there is an Arduino TM module that constantly controls all the internal stages of the amplifier; stage from outlet, to temperature monitoring of operation, to the regulation of the polarization current of the final stage, allowing the passage from class A to AB, up to the tachometric control of the extremely silent cooling fan, guaranteeing constant and stable operation over time. This choice allows unprecedented versatility and customization. MUSICA, despite being a muscular power amp, is extremely compact and modular (stereo or bi-amping) and is based on an optimized IC-Transistor architecture. MUSICA is able to deliver 2x130WRMS on 8 Ohm, 2x250WRMS on 4 Ohm, able to handle even limit loads of 2 Ohm thanks to a of current in continuous regime that easily reaches 30 Ampere."
+              "&lt;&lt;Power is nothing without control!&gt;&gt; so says the famous quotation… and it is precisely on this principle that the design of our brand-new amplifier is based. MUSICA is an uncompromising “speaker driver”, characterised by its excellent ability to manage complex loads while maintaining an extreme linearity, very low noise and a remarkable speed in the transient response. MUSICA is the first High End Amplifier that integrates Open Source HW technology! Inside there is an Arduino TM module that constantly controls all the internal functions of the amplifier. This includes the monitoring of its operating temperature, the regulation of the polarization current of the final stage, so allowing its transition from a class A to a class AB, as well speed control of the extremely silent cooling fan which thus guarantees constant and stable operation over time. This technology allows unprecedented versatility and customization. Its designed is based on an optimized IC-Transistor architecture. MUSICA, despite being a muscular power amplifier, is extremely compact so can be used as a single stereo amplifier or in a bi-amplification arrangement. MUSICA is able to deliver 2 x 130WRMS into 8 Ohms, 2 x 250WRMS into 4 Ohms, and can also handle loads as low as 2 Ohms due to its continuous high current output that comfortably reaches 30 Amps."
             )}
           </h3>
           <div
@@ -209,7 +211,7 @@ class Products extends React.Component {
           <h3 className={classes.headSubTitle}>TUBE LIKE PREAMPLIFIER</h3>
           <h3 style={{ color: "white" }}>
             {t(
-              "The tube sound is a highly sought after feature in the audiophile field, often being cited as a true term of reference to identify a pleasant sound, never harsh and at the same time rich in micro-information. However, the thermionic valve is a device which in addition to requiring careful selection, presents a series of other problems; complex circuit structure (voltages on average high, source of electronic noise and induced electromagnetic disturbances) and technological limits (deterioration of performance over time, microphonics, etc.). After years of study and experimentation, the H.E.A.D. have created, using completely analog and solid state circuits, a preamplifier capable of reproducing the typical sounds of a tube preamp, but without all the negative characteristics of the tubes. The key components of the Preamplifier are the SSTD (Solid State Tube Driver) and SST (Solid State Tube) devices which allow to characterize the input signal making it similar to a “tube tone”. It is thanks to this technology that it has been possible to create what represents a true sound evolution to bring to your Hi-end system."
+              "The traditional “valve amplifier” sound is a highly sought-after feature in the audiophile world, often being cited as a true term of reference to identify a warm, pleasing sound, which is never harsh, whilst still being rich in small details. However, the thermionic valve is a device which requires very careful selection and presents a series of other problems for amplifier design. They require a complex circuit structure using high voltages, often being a source of electronic noise and unwanted induced electromagnetic disturbance. They also have significant technological limits, such as deterioration of performance over time, and a susceptibility to microphonics (induced electrical noise from vibrations). After years of study and experimentation, H.E.A.D. have created a preamplifier capable of reproducing the typical sound characteristics of a valve preamp using completely analogue and solid-state circuits, but without the negative characteristics of the valves themselves. The key components of our new preamplifier are the SSTD (Solid State Tube Driver) and SST (Solid State Tube) devices which allow it to characterise the input signal making it similar to a “valve sound”. It is thanks to this technology that it has been possible to create a true sound evolution to bring to your audiophile system."
             )}
           </h3>
           <div

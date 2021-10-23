@@ -287,10 +287,10 @@ class Home extends React.Component {
                 return (
                   <Cards
                     key={card.title}
-                    title={card.title.toUpperCase()}
+                    title={t(card.title).toUpperCase()}
                     picture_url={card.picture_url}
                     link={card.link}
-                    description={card.description}
+                    description={t(card.description)}
                     technical={card.technical}
                     images={card.images}
                   ></Cards>
