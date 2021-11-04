@@ -14,8 +14,9 @@ import Products from "./components/Products";
 // import Tulip from "./components/Tulip";
 // import Musica from "./components/Musica";
 // import Cables from "./components/Cables";
-import products from "./references/prodotti.json";
+// import products from "./references/prodotti.json";
 import BackToTop from "./components/ScrollUp";
+import News from "./components/News";
 // import Bot from "./components/ChatBot";
 const styles = {
   first: {
@@ -33,9 +34,25 @@ const styles = {
   },
 };
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // news: [],
+    };
+  }
+  componentDidMount() {
+    fetch("../assets/news/news.json")
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        this.setState({ news: json });
+      });
+  }
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
+
   render() {
     const { classes } = this.props;
     return (
@@ -46,7 +63,7 @@ class App extends React.Component {
           <div style={{ position: "fixed", bottom: "5%", zIndex: 100 }}>
             {/* <Bot /> */}
           </div>
-          <Navbar />
+          {this.state.news ? <Navbar news={this.state.news} /> : <Navbar />}
 
           <div className="container">
             <Switch>
@@ -59,7 +76,15 @@ class App extends React.Component {
                 props={(this.props, classes.first)}
               />
               <Route exact path="/products-accessories" component={Products} />
-              {products.map((product) => {
+              <Route
+                exact
+                path="/news"
+                // render={() => <News news={[this.state.news]} />}
+                component={News}
+                // props={this.state.news}
+              />
+              <Route path="*" exact={true} component={Home} />
+              {/* {products.map((product) => {
                 return (
                   <Route
                     exact
@@ -68,7 +93,7 @@ class App extends React.Component {
                     key={product.link}
                   />
                 );
-              })}
+              })} */}
             </Switch>
           </div>
         </Router>

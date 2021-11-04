@@ -211,7 +211,7 @@ class ProductDescription extends React.Component {
                     variant="h4"
                     component="div"
                   >
-                    {title.startsWith("HEOLO")
+                    {title.startsWith("HEOLO") || title.startsWith("H.E.O.L.O.")
                       ? "High End Omnidirectional Loudspeaker"
                       : title === "M.U.SI.C.A."
                       ? "Modular Unit Silicon Core Amplifier"

@@ -20,6 +20,7 @@ import Switch from "@mui/material/Switch";
 import MenuIcon from "@mui/icons-material/Menu";
 import ReactCountryFlag from "react-country-flag";
 import Stack from "@mui/material/Stack";
+import { Badge } from "@material-ui/core";
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
   height: 16,
@@ -120,6 +121,8 @@ class Navbar extends React.Component {
       city: "",
       lan: "en",
       checked: false,
+      invisible: false,
+      // news: ,
     };
   }
   componentDidMount(props) {
@@ -170,8 +173,12 @@ class Navbar extends React.Component {
   handleOpenReservation = () => {
     this.setState({ openReservation: true });
   };
+  invisible() {
+    this.setState({ invisible: true });
+  }
   render() {
     const { t } = this.props;
+
     // const { t, i18n } = useTranslation();
     const menubar = () => {
       if (
@@ -209,6 +216,24 @@ class Navbar extends React.Component {
               >
                 {t("Products & Accessories")}
               </MenuItem>
+              {this.props.news && (
+                <MenuItem
+                  color="inherit"
+                  component={Link}
+                  to="/news"
+                  onClick={() => this.invisible()}
+                >
+                  <Badge
+                    badgeContent={this.props.news.length}
+                    color="secondary"
+                    variant="dot"
+                    invisible={this.state.invisible}
+                    id="badge"
+                  >
+                    {t("News")}
+                  </Badge>
+                </MenuItem>
+              )}
               <MenuItem color="inherit" component={Link} to="/contact-us">
                 {t("Contacts")}
               </MenuItem>
@@ -265,6 +290,22 @@ class Navbar extends React.Component {
             <Button color="inherit" component={Link} to="/products-accessories">
               {t("Products & Accessories")}
             </Button>
+            {this.props.news && (
+              <Button
+                color="inherit"
+                component={Link}
+                to="/news"
+                onClick={() => this.invisible()}
+              >
+                <Badge
+                  badgeContent={this.props.news.length}
+                  color="secondary"
+                  invisible={this.state.invisible}
+                >
+                  {t("News")}
+                </Badge>
+              </Button>
+            )}
             <Button color="inherit" component={Link} to="/contact-us">
               {t("Contacts")}
             </Button>

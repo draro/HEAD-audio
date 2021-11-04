@@ -3,11 +3,11 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Cards from "./Cards";
 import { withTranslation } from "react-i18next";
-import reviews from "../references/references.json";
+// import reviews from "../references/references.json";
 import Reviews from "./Reviews";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import prodotti from "../references/prodotti.json";
+// import prodotti from "../references/prodotti.json";
 import Contacts from "./Contacts";
 import AnimatedBg from "react-animated-bg";
 
@@ -145,8 +145,9 @@ class Home extends React.Component {
     this.state = {
       zoom_active: false,
       revNum: 0,
-      products: prodotti,
+      products: [],
       imagesList: [],
+      // reviews: [],
     };
     this.transform_image = this.transform_image.bind(this);
   }
@@ -176,6 +177,23 @@ class Home extends React.Component {
         ],
       });
     }
+
+    fetch("./assets/prodotti/prodotti.json")
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        console.log(json);
+        this.setState({ products: json });
+      });
+    fetch("./assets/references/references.json")
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        console.log(json);
+        this.setState({ reviews: json });
+      });
   }
   transform_image(input) {
     // alert("transform image");
@@ -193,6 +211,7 @@ class Home extends React.Component {
     }
   }
   previous_review() {
+    const { reviews } = this.state;
     let num = this.state.revNum;
     let nextNum;
     if (num === 0) {
@@ -204,6 +223,8 @@ class Home extends React.Component {
     this.setState({ revNum: nextNum });
   }
   next_review() {
+    const { reviews } = this.state;
+
     let num = this.state.revNum;
     let nextNum;
     if (num === reviews.length - 1) {
@@ -216,6 +237,7 @@ class Home extends React.Component {
   }
   render() {
     const { classes, t } = this.props;
+    const { reviews } = this.state;
     const isMobile = () => {
       if (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -282,24 +304,25 @@ class Home extends React.Component {
                 flexWrap: "wrap",
               }}
             >
-              {this.state.products.map((card) => {
-                console.log(card.title, card.picture_url, card.link);
-                return (
-                  <Cards
-                    key={card.title}
-                    title={t(card.title).toUpperCase()}
-                    picture_url={card.picture_url}
-                    link={card.link}
-                    description={t(card.description)}
-                    technical={card.technical}
-                    images={card.images}
-                  ></Cards>
-                );
-              })}
+              {this.state.products &&
+                this.state.products.map((card) => {
+                  console.log(card.title, card.picture_url, card.link);
+                  return (
+                    <Cards
+                      key={card.title}
+                      title={t(card.title).toUpperCase()}
+                      picture_url={card.picture_url}
+                      link={card.link}
+                      description={t(card.description)}
+                      technical={card.technical}
+                      images={card.images}
+                    ></Cards>
+                  );
+                })}
             </div>
           </div>
         </div>
-        {this.state.revNum >= 0 ? (
+        {reviews && this.state.revNum >= 0 ? (
           <div className={classes.first} style={{ flexDirection: "column" }}>
             <h2 className={classes.headTitle}>
               {t("What they say about HEOLO")}

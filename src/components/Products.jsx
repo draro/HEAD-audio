@@ -3,7 +3,7 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { withTranslation } from "react-i18next";
 import Cards from "./Cards";
-import products from "../references/prodotti.json";
+// import products from "../references/prodotti.json";
 import { Button } from "@mui/material";
 import pdf from "../references/techDescription.pdf";
 const styles = {
@@ -108,6 +108,20 @@ const styles = {
   },
 };
 class Products extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  componentDidMount() {
+    fetch("./assets/prodotti/prodotti.json")
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        console.log(json);
+        this.setState({ products: json });
+      });
+  }
   render() {
     const { classes, t } = this.props;
     return (
@@ -147,24 +161,28 @@ class Products extends React.Component {
                 flexWrap: "wrap",
               }}
             >
-              {products.map((card) => {
-                if (card.title.includes("HEOLO")) {
-                  return (
-                    <Cards
-                      key={card.title}
-                      title={card.title.toUpperCase()}
-                      picture_url={card.picture_url}
-                      link={card.link}
-                      description={card.description}
-                      showMore="true"
-                      images={card.images}
-                      technical={card.technical}
-                    ></Cards>
-                  );
-                } else {
-                  return null;
-                }
-              })}
+              {this.state.products &&
+                this.state.products.map((card) => {
+                  if (
+                    card.title.includes("HEOLO") ||
+                    card.title.includes("H.E.O.L.O.")
+                  ) {
+                    return (
+                      <Cards
+                        key={card.title}
+                        title={card.title.toUpperCase()}
+                        picture_url={card.picture_url}
+                        link={card.link}
+                        description={card.description}
+                        showMore="true"
+                        images={card.images}
+                        technical={card.technical}
+                      ></Cards>
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
             </div>
           </div>
         </div>
@@ -187,23 +205,25 @@ class Products extends React.Component {
               flexWrap: "wrap",
             }}
           >
-            {products.map((card) => {
-              if (card.title.includes("M.U.SI.C.A.")) {
-                return (
-                  <Cards
-                    key={card.title}
-                    title={card.title.toUpperCase()}
-                    picture_url={card.picture_url}
-                    link={card.link}
-                    description={card.description}
-                    showMore="true"
-                    images={card.images}
-                  ></Cards>
-                );
-              } else {
-                return null;
-              }
-            })}
+            {this.state.products &&
+              this.state.products.map((card) => {
+                if (card.title.includes("M.U.SI.C.A.")) {
+                  return (
+                    <Cards
+                      key={card.title}
+                      title={card.title.toUpperCase()}
+                      picture_url={card.picture_url}
+                      link={card.link}
+                      description={card.description}
+                      showMore="true"
+                      images={card.images}
+                      technical={card.technical}
+                    ></Cards>
+                  );
+                } else {
+                  return null;
+                }
+              })}
           </div>
         </div>
         <div className={classes.first} id="tulip">
@@ -221,25 +241,63 @@ class Products extends React.Component {
               flexWrap: "wrap",
             }}
           >
-            {products.map((card) => {
-              if (card.title.includes("TU.LI.P.")) {
-                return (
-                  <Cards
-                    key={card.title}
-                    title={card.title.toUpperCase()}
-                    picture_url={card.picture_url}
-                    link={card.link}
-                    description={card.description}
-                    showMore="true"
-                    images={card.images}
-                  ></Cards>
-                );
-              } else {
-                return null;
-              }
-            })}
+            {this.state.products &&
+              this.state.products.map((card) => {
+                if (card.title.includes("TU.LI.P.")) {
+                  return (
+                    <Cards
+                      key={card.title}
+                      title={card.title.toUpperCase()}
+                      picture_url={card.picture_url}
+                      link={card.link}
+                      description={card.description}
+                      showMore="true"
+                      images={card.images}
+                      technical={card.technical}
+                    ></Cards>
+                  );
+                } else {
+                  return null;
+                }
+              })}
           </div>
         </div>
+        {this.state.products &&
+          this.state.products.map((card) => {
+            if (
+              !card.title.includes("TU.LI.P.") &&
+              !card.title.includes("M.U.SI.C.A.") &&
+              !card.title.includes("HEOLO")
+            ) {
+              return (
+                <div className={classes.second}>
+                  <h2 className={classes.headTitle}>Accessories</h2>
+                  <h3 className={classes.headSubTitle}>Our accessories</h3>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <Cards
+                      key={card.title}
+                      title={card.title.toUpperCase()}
+                      picture_url={card.picture_url}
+                      link={card.link}
+                      description={card.description}
+                      showMore="true"
+                      images={card.images}
+                      technical={card.technical}
+                    ></Cards>
+                  </div>
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
       </>
     );
   }

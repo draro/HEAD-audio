@@ -161,3 +161,13 @@ h8{
    /* background-color:white; */
    border-radius: 50%;
 }
+#badge{
+  z-index: 100;
+}
+#description{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
