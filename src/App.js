@@ -58,45 +58,11 @@ class App extends React.Component {
     return (
       <div className="App">
         {/* <Provider store={store}> */}
-        <Router>
-          <BackToTop />
-          <div style={{ position: "fixed", bottom: "5%", zIndex: 100 }}>
-            {/* <Bot /> */}
-          </div>
-          {this.state.news ? <Navbar news={this.state.news} /> : <Navbar />}
-
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/about-us" component={About} />
-              <Route
-                exact
-                path="/contact-us"
-                component={Contacts}
-                props={(this.props, classes.first)}
-              />
-              <Route exact path="/products-accessories" component={Products} />
-              <Route
-                exact
-                path="/news"
-                // render={() => <News news={[this.state.news]} />}
-                component={News}
-                // props={this.state.news}
-              />
-              <Route path="*" exact={true} component={Home} />
-              {/* {products.map((product) => {
-                return (
-                  <Route
-                    exact
-                    path={product.link}
-                    component={this.capitalizeFirstLetter(product.link)}
-                    key={product.link}
-                  />
-                );
-              })} */}
-            </Switch>
-          </div>
-        </Router>
+        <BackToTop />
+        {/*<div style={{ position: "fixed", bottom: "5%", zIndex: 100 }}>
+             <Bot /> 
+          </div>*/}
+        {this.state.news ? <Navbar news={this.state.news} /> : <Navbar />}
         {/* <Footer /> */}
         {/* </Provider> */}
       </div>

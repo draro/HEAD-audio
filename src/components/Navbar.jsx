@@ -126,17 +126,30 @@ class Navbar extends React.Component {
     };
   }
   componentDidMount(props) {
-    if (localStorage.getItem("heolo_lan") === "en") {
-      this.setState({ lan: localStorage.getItem("heolo_lan"), checked: true });
+    if (typeof window !== "undefined") {
+      console.log("we are running on the client");
+      if (localStorage.i18nextLng) {
+        if (localStorage.getItem("i18nextLng").startsWith("en")) {
+          this.setState({
+            lan: "en",
+            checked: true,
+          });
+        } else {
+          this.setState({
+            lan: localStorage.getItem("i18nextLng"),
+            checked: false,
+          });
+        }
+      }
     } else {
-      this.setState({ lan: localStorage.getItem("heolo_lan"), checked: false });
+      console.log("we are running on the server");
     }
   }
   changeLanguage = (lng) => {
     this.setState({ lan: lng, checked: !this.state.checked });
     i18n.changeLanguage(lng);
     this.handleCloseLanguage();
-    localStorage.setItem("heolo_lan", lng);
+    localStorage.setItem("i18nextLng", lng);
   };
   handleClick = (event) => {
     this.setState({ anchorEl: event.currentTarget });
@@ -237,6 +250,20 @@ class Navbar extends React.Component {
               <MenuItem color="inherit" component={Link} to="/contact-us">
                 {t("Contacts")}
               </MenuItem>
+              <MenuItem>
+                <a
+                  href="https://www.facebook.com/highendaudiodevices"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    height="20px"
+                    width="20px"
+                    src="../assets/facebook_icon.png"
+                    alt="facebook link"
+                  />
+                </a>
+              </MenuItem>
               {/* <FormGroup> */}
 
               {/* </FormGroup> */}
@@ -308,6 +335,19 @@ class Navbar extends React.Component {
             )}
             <Button color="inherit" component={Link} to="/contact-us">
               {t("Contacts")}
+            </Button>
+            <Button
+              style={{ width: 20 }}
+              href="https://www.facebook.com/highendaudiodevices"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                height="30px"
+                width="30px"
+                src="../assets/facebook_icon.png"
+                alt="facebook link"
+              />
             </Button>
             {/* <FormGroup> */}
 

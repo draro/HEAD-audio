@@ -29,13 +29,6 @@ class NewsDescription extends React.Component {
         // style={{ margin: 10, boxShadow: "5px 5px rgba(0,0,0,.4)" }}
         id="description"
       >
-        <CardMedia
-          component="img"
-          height="400px"
-          style={{ objectFit: "fill" }}
-          image={image}
-          alt={title}
-        />
         <CardContent style={{ maxHeight: 300 }}>
           <Typography gutterBottom variant="h5" component="div">
             {title}
@@ -44,6 +37,14 @@ class NewsDescription extends React.Component {
             {description}
           </Typography>
         </CardContent>
+        <CardMedia
+          component="img"
+          height="400px"
+          style={{ objectFit: "fill" }}
+          image={image}
+          alt={title}
+        />
+
         {link && (
           <CardActions>
             {/* <Button size="small">Share</Button> */}

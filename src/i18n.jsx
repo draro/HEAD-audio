@@ -17,20 +17,17 @@ const resources = {
   it: {
     translation: translationIT,
   },
-  fr: {
-    translation: translationFR,
-  },
-  es: {
-    translation: translationES,
-  },
-  ru: {
-    translation: translationRU,
-  },
 };
-let lang;
-if (localStorage.heolo_lang) {
-  lang = localStorage.heolo_lang;
-}
+// let lang;
+// if (typeof window !== "undefined") {
+//   console.log("we are running on the client");
+//   if (localStorage.heolo_lang) {
+//     lang = localStorage.getItem("heolo_lang");
+//   }
+// } else {
+//   console.log("we are running on the server");
+// }
+
 i18n
   .use(detector)
   .use(LanguageDetector)
